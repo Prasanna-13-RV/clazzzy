@@ -1,0 +1,196 @@
+import React, {useRef, useState} from "react";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
+import {Multiselect} from "multiselect-react-dropdown";
+import {useEffect} from "react";
+import Select from "react-select";
+
+const CreateComponent = () => {
+    const [name, setName] = useState("");
+    const [price, setPrice] = useState(0);
+    const [rating, setRating] = useState(0);
+    const [image, setImage] = useState("");
+    const [category, setCategory] = useState([]);
+    const [description, setDescription] = useState("");
+
+    const inputRef = useRef();
+
+    const navigate = useNavigate();
+
+    const createProduct = () => {
+        const productDetails = new FormData();
+        productDetails.append("name", name);
+        productDetails.append("price", price);
+        productDetails.append("rating", rating);
+        productDetails.append("category", category);
+        productDetails.append("description", description);
+        productDetails.append("image", image);
+        axios
+            .post("http://localhost:8080/admin/createproducts", productDetails)
+            .then((response) => console.log(response));
+        // console.log({
+        //     name: name,
+        //     price: price,
+        //     image: image,
+        //     category: category,
+        //     description: description,
+        //     rating: rating,
+        // });
+
+        // navigate("/admin/totalproducts");
+    };
+
+    const options = [
+        {value: 1, label: "shirts"},
+        {value: 2, label: "vegetables"},
+        {value: 3, label: "fruits"},
+        {value: 4, label: "screws"},
+    ];
+
+    // const [selected] = useState(categoryArray);
+
+    useEffect(() => {
+        console.log(category);
+    }, [category]);
+
+    const handleChange = (e) => {
+        setCategory(e.map((e) => e.label));
+    };
+
+    return (
+        <>
+            <div className="w-full px-10 py-5 flex flex-col justify-center items-center">
+                <div className="relative z-0 mb-6 w-1/2 group">
+                    <input
+                        type="text"
+                        // name="product_name"
+                        id="product_name"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        placeholder="Enter Product Name"
+                        required
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </div>
+                <div className="relative z-0 mb-6 w-1/2 group">
+                    <input
+                        type="number"
+                        // name="product_price"
+                        id="product_price"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        placeholder="Enter product price"
+                        required=""
+                        onChange={(e) => setPrice(e.target.value)}
+                    />
+                </div>
+
+                <div className="relative z-0 mb-6 w-1/2 group">
+                    <input
+                        type="number"
+                        // name="product_rating"
+                        id="product_rating"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        placeholder="Enter Rating"
+                        required=""
+                        onChange={(e) => setRating(e.target.value)}
+                    />
+                </div>
+                <div className="relative z-0 mb-6 w-1/2 group">
+                    <input
+                        type="file"
+                        // name="product_image"
+                        id="product_image"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        placeholder="Enter Product Image URL"
+                        required
+                        onChange={(e) => {
+                            setImage(e.target.files[0]);
+                            // console.log(e.target.files[0]);
+                        }}
+                    />
+                </div>
+                <div className="relative z-0 mb-6 w-1/2 group">
+                    <label
+                        htmlFor="message"
+                        className="block mb-2 text-sm font-medium text-gray-900"
+                    >
+                        Enter Product Description
+                    </label>
+                    <textarea
+                        id="message"
+                        rows="4"
+                        className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                        placeholder="Leave a comment..."
+                        onChange={(e) => setDescription(e.target.value)}
+                    ></textarea>
+                </div>
+
+                {/* <div className="relative z-0 mb-6 w-1/2 group">
+                    <label
+                        htmlFor="countries"
+                        className="block mb-2 text-sm font-medium text-gray-900"
+                    >
+                        Select Project Category
+                    </label>
+                    <select
+                        id="countries"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                    >
+                        <option
+                            value="Clothing"
+                            onChange={(e) => setCategory(e.target.value)}
+                        >
+                            Clothing
+                        </option>
+                        <option
+                            value="Fruits"
+                            onChange={(e) => setCategory(e.target.value)}
+                        >
+                            Fruits
+                        </option>
+                        <option
+                            value="Vegetables"
+                            onChange={(e) => setCategory(e.target.value)}
+                        >
+                            Vegetables
+                        </option>
+                        <option
+                            value="Screws"
+                            onChange={(e) => setCategory(e.target.value)}
+                        >
+                            Screws
+                        </option>
+                        <option
+                            value="Shirts"
+                            onChange={(e) => setCategory(e.target.value)}
+                        >
+                            Shirts
+                        </option>
+                    </select>
+                </div> */}
+
+                <Select
+                    className="basic-multi-select w-1/2 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 mb-5"
+                    placeholder="Select Option"
+                    // value={options.filter(obj => category.includes(obj.value))} // set selected values
+                    options={options} // set list of the data
+                    // onChange={handleChange} // assign onChange function
+                    // onClick={handleChange}
+                    isMulti
+                    classNamePrefix="select"
+                    isClearable
+                    onChange={(e) => handleChange(e)}
+                />
+
+                <button
+                    type="submit"
+                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
+                    onClick={createProduct}
+                >
+                    Submit
+                </button>
+            </div>
+        </>
+    );
+};
+
+export default CreateComponent;
