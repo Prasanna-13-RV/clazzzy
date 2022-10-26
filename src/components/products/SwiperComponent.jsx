@@ -56,27 +56,27 @@ export default function SwiperProducts() {
             >
                 <div
                     slot="container-start"
-                    // className="parallax-bg"
-                    // style={{
-                    //     background:
-                    //         "url(https://swiperjs.com/demos/images/nature-1.jpg) center/cover no-repeat",
-                    // }}
+                    className="parallax-bg"
+                    style={{
+                        background:
+                            "url(https://www.mattsenkumar.com/wp-content/uploads/2019/09/2306.jpg) center/cover no-repeat",
+                    }}
                     data-swiper-parallax="-23%"
                 ></div>
                 <SwiperSlide
-                    style={{
-                        background:
-                            "url(https://swiperjs.com/demos/images/nature-1.jpg) center/cover no-repeat",
-                        width: "100%",
-                        height: "75vh",
-                    }}
+                    // style={{
+                    //     background:
+                    //         "url(https://swiperjs.com/demos/images/nature-1.jpg) center/cover no-repeat",
+                    //     width: "100%",
+                    //     height: "75vh",
+                    // }}
                 >
                     <div className="title" data-swiper-parallax="-300">
-                        Slide 1
+                        Wanyt to Buy some Products
                     </div>
-                    <div className="subtitle" data-swiper-parallax="-200">
+                    {/* <div className="subtitle" data-swiper-parallax="-200">
                         Subtitle
-                    </div>
+                    </div> */}
                     <div className="text" data-swiper-parallax="-100">
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing

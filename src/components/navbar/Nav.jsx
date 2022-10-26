@@ -3,21 +3,24 @@ import {Disclosure, Menu, Transition} from "@headlessui/react";
 import {Bars3Icon, BellIcon, XMarkIcon} from "@heroicons/react/24/outline";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
+import logo from "../../logo/logo-no-background.png"
 
-const navigation = [
-    {name: "Home", href: "/", current: true},
-    {name: "Products", href: "/products", current: false},
-    {name: "Contact Us", href: "/contact", current: false},
-    {name: "Login", href: "/login", current: false},
-    {name: "Register", href: "/register", current: false},
-];
+
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
 }
 
-export default function Nav() {
+export default function Nav({current}) {
     const {user} = useSelector((state) => ({...state}));
+
+    const navigation = [
+        {name: "Home", href: "/", current: current},
+        {name: "Products", href: "/products", current: current},
+        {name: "Contact Us", href: "/contact", current: current},
+        {name: "Login", href: "/login", current: current},
+        {name: "Register", href: "/register", current: current},
+    ];
 
     return (
         <Disclosure as="nav" className="z-50">
@@ -45,15 +48,15 @@ export default function Nav() {
                                 </Disclosure.Button>
                             </div>
                             <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-between">
-                                <div className="flex flex-shrink-0 items-center">
+                                <div className="flex flex-shrink-0 items-center bg-[#dc3c32]">
                                     <img
-                                        className="block h-8 w-auto lg:hidden"
-                                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                        className="block h-10 w-auto lg:hidden"
+                                        src={logo}
                                         alt="Your Company"
                                     />
                                     <img
-                                        className="hidden h-8 w-auto lg:block"
-                                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                        className="hidden h-8 lg:block rounded"
+                                        src={logo}
                                         alt="Your Company"
                                     />
                                 </div>
