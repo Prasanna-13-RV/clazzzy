@@ -53,14 +53,12 @@ router.get("/product", async (req, res) => {
             products,
         };
 
-    res.status(200).json(response);
+        res.status(200).json(response);
     } catch (err) {
         console.log(err);
         res.status(500).json({error: true, message: "Internal Server Error"});
     }
 });
-
-
 
 // const insertProducts = async() => {
 //     try {

@@ -11,6 +11,8 @@ const productsRoutes = require("./routes/products");
 const crudRoutes = require("./routes/crud");
 const singleproduct = require("./routes/singleproduct");
 const addtocart = require("./routes/addtocart");
+const razorpay = require("./routes/razorpay");
+const recommend = require("./routes/recommend");
 
 dbConnect();
 app.use(express.json());
@@ -20,6 +22,8 @@ app.use("/api", productsRoutes);
 app.use("/", crudRoutes);
 app.use("/", singleproduct);
 app.use("/", addtocart);
+app.use("/", recommend);
+app.use("/api/payment", razorpay);
 
 app.get("/", (req, res) => {
     res.send("Hello World");

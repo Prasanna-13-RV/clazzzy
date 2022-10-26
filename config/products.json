@@ -5,7 +5,8 @@
         "description" : "lorem Text",
         "rating" : "5",
         "categories" : ["Shirts", "Clothing"],
-        "pricing": "40"
+        "pricing": "40",
+        "count": "5"
     },
     {
         "name": "Shirt 10",
@@ -13,7 +14,8 @@
         "description" : "lorem Text",
         "rating" : "5",
         "categories" : ["Shirts", "Clothing"],
-        "pricing": "400"
+        "pricing": "400",
+        "count": "3"
     },
     {
         "name": "Shirt fgh",
@@ -21,7 +23,8 @@
         "description" : "lorem Text",
         "rating" : "2",
         "categories" : ["Shirts"],
-        "pricing": "100"
+        "pricing": "100",
+        "count": "2"
     },
     {
         "name": "Shirt 8",
@@ -29,7 +32,8 @@
         "description" : "lorem Text",
         "rating" : "2",
         "categories" : ["Shirts"],
-        "pricing": "40"
+        "pricing": "40",
+        "count": "5"
     },
     {
         "name": "Vegetables 1",
@@ -37,7 +41,8 @@
         "description" : "lorem Text",
         "rating" : "5",
         "categories" : ["Vegetables"],
-        "pricing": "100"
+        "pricing": "100",
+        "count": "0"
     },
     {
         "name": "Fruits 1",
@@ -45,7 +50,8 @@
         "description" : "lorem Text",
         "rating" : "4",
         "categories" : ["Fruits"],
-        "pricing": "40"
+        "pricing": "40",
+        "count": "8"
     },
     {
         "name": "V & F",
@@ -53,6 +59,7 @@
         "description" : "lorem Text",
         "rating" : "4",
         "categories" : ["Fruits", "Vegetables"],
-        "pricing": "40"
+        "pricing": "40",
+        "count": "10"
     }
 ]
