@@ -73,21 +73,21 @@ const Template = ({productid}) => {
                                     <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">
                                         {currentProduct.name}
                                     </h2>
-                                    <p className="text-gray-500 text-sm my-3">
+                                    <div className="text-gray-500 text-sm my-3">
                                         {currentProduct.categories &&
                                             currentProduct.categories.map(
                                                 (category, err) => {
                                                     return (
-                                                        <div
+                                                        <p
                                                             key={category}
                                                             className="mr-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-orange-200 text-orange-700 rounded-full"
                                                         >
                                                             {category}
-                                                        </div>
+                                                        </p>
                                                     );
                                                 }
                                             )}
-                                    </p>
+                                    </div>
                                     <section
                                         aria-labelledby="information-heading"
                                         className="mt-2"

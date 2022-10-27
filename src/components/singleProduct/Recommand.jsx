@@ -8,48 +8,69 @@ const Recommand = ({category}) => {
     const [recommand, setRecommand] = useState([]);
 
     const getProducts = () => {
-        axios
-            .get("http://localhost:8080/recommend")
-            .then((response) => setProducts(response.data));
+        axios.get("http://localhost:8080/recommend").then((response) => {
+            // setProducts(response.data.filter);
+            const categoriesOptions = [
+                "Clothing",
+                "Fruits",
+                "Vegetables",
+                "Screws",
+                "Shirts",
+            ];
+            const all = response.data.filter((pro) => {
+                // return pro.categories.forEach((e) => {
+                // categoriesOptions.forEach(element => {
+                // })
+                return pro.categories.some((element) =>
+                    category.includes(element)
+                );
+                // });
+            });
+            setProducts(all);
+        });
     };
+
     useEffect(() => {
         getProducts();
-    }, []);
-    // console.log(products);
+        console.log(category);
+    }, [category]);
 
-    const recommandProducts = () => {
-        {
-            products &&
-                products.map((e, index) => {
-                    // console.log(e.categories);
-                    e.categories.forEach((element2) => {
-                        category.forEach((element) => {
-                            if (element == element2) {
-                                setRecommandation([...recommandation, e]);
-                            }
-                        });
-                    });
-                });
-        }
-    };
+    // const recommandProducts = () => {
+    //     {
+    //         products &&
+    //             products.map((e, index) => {
+    //                 // console.log(e.categories);
+    //                 e.categories.forEach((element2) => {
+    //                     category.forEach((element) => {
+    //                         if (element == element2) {
+    //                             setRecommandation([...recommandation, e]);
+    //                         }
+    //                     });
+    //                 });
+    //             });
+    //     }
+    // };
 
-    useEffect(() => {
-        recommandProducts();
-    });
+    // useEffect(() => {
+    //     recommandProducts();
+    // }, []);
 
     return (
         <>
             <section className="w-full my-5 px-10">
                 <h1 className="w-full m-5 text-2xl flex justify-center items-center">
                     Recommended Products
-                    {/* {JSON.stringify(products[0])} */}
+                    {JSON.stringify(products)}
                 </h1>
                 <div className="flex flex-row flex-wrap justify-center items-center">
                     {products &&
                         products.map((product) => {
                             return (
                                 <div className="max-w-sm rounded overflow-hidden shadow-lg m-3">
-                                    <a target="_blank" href={`/singleproduct/${product._id}`}>
+                                    <a
+                                        target="_blank"
+                                        href={`/singleproduct/${product._id}`}
+                                    >
                                         <img
                                             className="w-full"
                                             src={product.img}
@@ -64,21 +85,21 @@ const Recommand = ({category}) => {
                                         </p>
                                     </div>
                                     <div className="px-6 pt-4 pb-2">
-                                        <p className="text-gray-500 text-sm">
+                                        <div className="text-gray-500 text-sm">
                                             {product.categories &&
                                                 product.categories.map(
                                                     (category, err) => {
                                                         return (
-                                                            <div
+                                                            <p
                                                                 key={category}
                                                                 className="ml-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-orange-200 text-orange-700 rounded-full"
                                                             >
                                                                 {category}
-                                                            </div>
+                                                            </p>
                                                         );
                                                     }
                                                 )}
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
                             );
