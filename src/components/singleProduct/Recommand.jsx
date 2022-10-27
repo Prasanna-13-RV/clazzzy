@@ -49,12 +49,12 @@ const Recommand = ({category}) => {
                         products.map((product) => {
                             return (
                                 <div className="max-w-sm rounded overflow-hidden shadow-lg m-3">
-                                    <Link to={`/singleproduct/${product._id}`}>
+                                    <a target="_blank" href={`/singleproduct/${product._id}`}>
                                         <img
                                             className="w-full"
                                             src={product.img}
                                         />
-                                    </Link>
+                                    </a>
                                     <div className="px-6 py-4">
                                         <div className="font-bold text-xl mb-2">
                                             {product.name}

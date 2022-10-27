@@ -61,7 +61,7 @@ const Template = ({productid}) => {
                 <div className="flex w-full items-stretch justify-center text-center md:items-center md:px-2 lg:px-4">
                     <div className="flex w-full transform text-left text-base transition md:my-8 ">
                         <div className="relative flex w-full items-center overflow-hidden bg-white px-15 pt-14 pb-8 sm:px-6 sm:pt-8 md:p-6">
-                            <div className="grid w-full grid-cols-1 items-start gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8">
+                            <div key={currentProduct} className="grid w-full grid-cols-1 items-start gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8">
                                 <div className="aspect-w-2 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
                                     <img
                                         src={currentProduct.img}
@@ -80,7 +80,7 @@ const Template = ({productid}) => {
                                                     return (
                                                         <div
                                                             key={category}
-                                                            className="ml-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-orange-200 text-orange-700 rounded-full"
+                                                            className="mr-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-orange-200 text-orange-700 rounded-full"
                                                         >
                                                             {category}
                                                         </div>

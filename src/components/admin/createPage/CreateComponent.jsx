@@ -102,16 +102,16 @@ const CreateComponent = () => {
                 </div>
                 <div className="relative z-0 mb-6 w-1/2 group">
                     <input
-                        type="file"
+                        type="text"
                         // name="product_image"
                         id="product_image"
                         className="w-full text-sm py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                         placeholder="Enter Product Image URL"
                         required
-                        onChange={(e) => {
-                            setImage(e.target.files[0]);
-                            // console.log(e.target.files[0]);
-                        }}
+                        // onChange={(e) => {
+                        //     setImage(e.target.files[0]);
+                        //     // console.log(e.target.files[0]);
+                        // }}
                     />
                 </div>
                 <div className="relative z-0 mb-6 w-1/2 group">
