@@ -28,7 +28,7 @@ const UpdateComponent = ({productid}) => {
     };
 
     const updateProduct = (id) => {
-        axios.put(`http://localhost:8080/admin/updateproducts/${id}`, {
+        axios.put(`https://clazzzy.herokuapp.com/admin/updateproducts/${id}`, {
             name: name,
             price: price,
             image: image,
@@ -42,7 +42,7 @@ const UpdateComponent = ({productid}) => {
 
     const currentProductFunction = () => {
         axios
-            .get(`http://localhost:8080/admin/updateproducts/${productid}`)
+            .get(`https://clazzzy.herokuapp.com/admin/updateproducts/${productid}`)
             .then((response) => {
                 setCurrentproducts(response.data);
                 setName(response.data.name);

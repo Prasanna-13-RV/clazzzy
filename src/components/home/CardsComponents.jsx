@@ -7,7 +7,7 @@ const CardsComponents = () => {
 
     const getProducts = () => {
         axios
-            .get("http://localhost:8080/home")
+            .get("https://clazzzy.herokuapp.com/home")
             .then((response) => setProducts(response.data));
     };
 

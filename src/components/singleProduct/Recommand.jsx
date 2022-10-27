@@ -8,7 +8,7 @@ const Recommand = ({category}) => {
     const [recommand, setRecommand] = useState([]);
 
     const getProducts = () => {
-        axios.get("http://localhost:8080/recommend").then((response) => {
+        axios.get("https://clazzzy.herokuapp.com/recommend").then((response) => {
             // setProducts(response.data.filter);
             const categoriesOptions = [
                 "Clothing",

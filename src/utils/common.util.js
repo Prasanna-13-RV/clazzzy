@@ -4,5 +4,5 @@ export const NODE_ENV = "development";
 
 export const BASE_URL =
     NODE_ENV === "development"
-        ? "http://localhost:8080/api"
+        ? "https://clazzzy.herokuapp.com/api"
         : "https://andhaadhirehab.com/api";

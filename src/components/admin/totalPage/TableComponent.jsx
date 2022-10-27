@@ -12,7 +12,7 @@ const TableComponent = () => {
         const getProducts = async () => {
             try {
                 const {data} = await axios.get(
-                    `http://localhost:8080/admin/readproducts`
+                    `https://clazzzy.herokuapp.com/admin/readproducts`
                 );
                 // console.log(data);
                 setAllProducts(data);
@@ -25,7 +25,7 @@ const TableComponent = () => {
 
     const navigate = useNavigate();
     const handleRemove = (id) => {
-        axios.delete(`http://localhost:8080/admin/deleteproducts/${id}`);
+        axios.delete(`https://clazzzy.herokuapp.com/admin/deleteproducts/${id}`);
         console.log(id);
         // navigate("/admin/totalproducts");
     };

@@ -7,7 +7,7 @@ const ContactComponent = () => {
     const [message, setMessage] = useState("");
 
     const handleSubmit = () => {
-        axios.post(`http://localhost:8080/contact`, {
+        axios.post(`https://clazzzy.herokuapp.com/contact`, {
             fullname,
             email,
             message,
