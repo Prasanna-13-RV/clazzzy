@@ -17,10 +17,10 @@ const SortComponent = ({sort, setSort}) => {
 
     return (
         <div className="">
-            <p className="sort_by">Sort By:</p>
-            <div className="flex flex-row ">
+            <p className="text-lg font-medium text-gray-900 my-4">Sort By:</p>
+            <div className="flex flex-row items-center">
                 <select
-                    className="select"
+                    className="border p-2 pr-3"
                     defaultValue={sort.sort}
                     onChange={onselectChange}
                 >

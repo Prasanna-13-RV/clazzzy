@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import axios from "axios";
 // require('dotenv').config();
+import CardsComponent from "../home/CardsComponents";
 
 const AddCartComponent = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -28,39 +29,39 @@ const AddCartComponent = () => {
 
     const totalAmount = totalPrice + tax;
 
-
     const initPayment = (data) => {
-		const options = {
-			key_id: "rzp_live_U7cy0C9n53W5cp",
+        const options = {
+            key_id: "rzp_live_U7cy0C9n53W5cp",
             key_secret: "biw705IyzU0XSbuGVaV4ZlKs",
-			amount: totalAmount,
-			currency: data.currency,
-			// name: book.name,
-			description: "Test Transaction",
-			// image: book.img,
-			order_id: data.id,
-			handler: async (response) => {
-				try {
-					const verifyUrl = "http://localhost:8080/api/payment/verify";
-					const { data } = await axios.post(verifyUrl, response);
-					console.log(data);
-				} catch (error) {
-					console.log(error);
-				}
-			},
-			theme: {
-				color: "#3399cc",
-			},
-		};
-		const rzp1 = new window.Razorpay(options);
-		rzp1.open();
-	};
+            amount: totalAmount,
+            currency: data.currency,
+            // name: book.name,
+            description: "Test Transaction",
+            // image: book.img,
+            order_id: data.id,
+            handler: async (response) => {
+                try {
+                    const verifyUrl =
+                        "http://localhost:8080/api/payment/verify";
+                    const {data} = await axios.post(verifyUrl, response);
+                    // console.log(data);
+                } catch (error) {
+                    console.log(error);
+                }
+            },
+            theme: {
+                color: "#3399cc",
+            },
+        };
+        const rzp1 = new window.Razorpay(options);
+        rzp1.open();
+    };
 
     const handlePayment = async () => {
         try {
             const orderurl = "http://localhost:8080/api/payment/orders";
             const {data} = await axios.post(orderurl, {amount: totalAmount});
-            console.log(data);
+            // console.log(data);
             initPayment(data.data);
         } catch (error) {
             console.log(error);
@@ -197,7 +198,7 @@ const AddCartComponent = () => {
                         )}
 
                         <a
-                            href="#"
+                            href="/products"
                             className="flex font-semibold text-indigo-600 text-sm mt-10"
                         >
                             <svg
@@ -246,6 +247,7 @@ const AddCartComponent = () => {
                 </div>
                 ;
             </div>
+            <CardsComponent />
         </>
     );
 };

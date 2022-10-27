@@ -1,16 +1,18 @@
 import React from "react";
 import Nav from "../../components/navbarAdmin/Nav";
+import {Helmet} from "react-helmet";
 
 const Dashboard = () => {
     return (
         <>
+            <Helmet>
+                <title>Dashboard | Clazzy</title>
+            </Helmet>
             <body className="relative bg-yellow-50 overflow-hidden max-h-screen">
                 <header className="fixed right-0 top-0 left-60 bg-yellow-50 py-3 px-4 h-16">
                     <div className="max-w-4xl mx-auto">
                         <div className="flex items-center justify-between">
-                            <div className="text-lg font-bold">
-                                Products
-                            </div>
+                            <div className="text-lg font-bold">Products</div>
                         </div>
                     </div>
                 </header>

@@ -1,11 +1,11 @@
 import {Fragment} from "react";
 import {Disclosure, Menu, Transition} from "@headlessui/react";
 import {Bars3Icon, BellIcon, XMarkIcon} from "@heroicons/react/24/outline";
-import {useSelector} from "react-redux";
-import {Link} from "react-router-dom";
-import logo from "../../logo/logo-no-background.png"
-
-
+import {useSelector, useDispatch} from "react-redux";
+import {Link, useNavigate} from "react-router-dom";
+import logo from "../../logo/clazzzy-logo-layer.png";
+import {auth, db} from "../../firebase/firebase";
+import {signOut} from "firebase/auth";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -18,9 +18,22 @@ export default function Nav({current}) {
         {name: "Home", href: "/", current: current},
         {name: "Products", href: "/products", current: current},
         {name: "Contact Us", href: "/contact", current: current},
-        {name: "Login", href: "/login", current: current},
-        {name: "Register", href: "/register", current: current},
     ];
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const logOutButton = async () => {
+        try {
+            await signOut(auth);
+            await dispatch({
+                type: "LOGOUT",
+            });
+            navigate("/login");
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <Disclosure as="nav" className="z-50">
@@ -48,12 +61,14 @@ export default function Nav({current}) {
                                 </Disclosure.Button>
                             </div>
                             <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-between">
-                                <div className="flex flex-shrink-0 items-center bg-[#dc3c32]">
-                                    <img
-                                        className="block h-10 w-auto lg:hidden"
-                                        src={logo}
-                                        alt="Your Company"
-                                    />
+                                <div className="flex flex-shrink-0 items-center">
+                                    <Link to="/">
+                                        <img
+                                            className="h-[6rem] absolute w-auto top-[-1rem] left-0"
+                                            src={logo}
+                                            alt="Your Company"
+                                        />
+                                    </Link>
                                     <img
                                         className="hidden h-8 lg:block rounded"
                                         src={logo}
@@ -199,9 +214,7 @@ export default function Nav({current}) {
                                                                 : "",
                                                             "block px-4 py-2 text-sm text-gray-700"
                                                         )}
-                                                        // onClick={
-                                                        //     logOutButton
-                                                        // }
+                                                        onClick={logOutButton}
                                                     >
                                                         Sign out
                                                     </a>

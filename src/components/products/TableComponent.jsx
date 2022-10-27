@@ -5,9 +5,9 @@ const TableComponent = ({products}) => {
     return (
         <>
             <div className="w-full flex flex-row justify-center items-center flex-wrap">
-                {products.map((product) => (
+                {products.map((product, index) => (
                     <div
-                        key={product._id}
+                        key={index}
                         className="max-w-sm rounded overflow-hidden shadow-lg my-3 mx-5"
                     >
                         <Link to={`/singleproduct/${product._id}`}>

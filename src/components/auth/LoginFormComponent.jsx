@@ -117,6 +117,7 @@ export const LoginFormComponent = () => {
                                     <a
                                         className="text-xs font-display font-semibold text-[#B5838D] hover:text-[#FFC1AA]
                                         cursor-pointer"
+                                        href="/forgotpassword"
                                     >
                                         Forgot Password?
                                     </a>

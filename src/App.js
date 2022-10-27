@@ -13,14 +13,16 @@ import AddToCart from "./Pages/AddToCart";
 import Contact from "./Pages/Contact";
 import Profile from "./Pages/Profile";
 import Dashboard from "./Pages/Admin/Dashboard";
+import ForgotPassword from "./Pages/Auth/ForgotPassword";
 
 function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Home />} current={"true"} />
-                <Route path="/login" element={<Login />} current={"true"} />
-                <Route path="/register" element={<Register />} current={"true"} />
+                <Route path="/" element={<Home />} current={true} />
+                <Route path="/login" element={<Login />} current={true} />
+                <Route path="/register" element={<Register />} current={true} />
+                <Route path="/forgotpassword" element={<ForgotPassword />} current={true} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/addtocart" element={<AddToCart />} />
                 <Route path="/addtocart" element={<AddToCart />} />

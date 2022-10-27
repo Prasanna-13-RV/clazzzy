@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
+import { Helmet } from "react-helmet";
 import {useDispatch, useSelector} from "react-redux";
 import {Navigate, useParams} from "react-router-dom";
-import Recommand from "../components/singleProduct/Recommand";
+import Nav from "../components/navbar/Nav";
 import Template from "../components/singleProduct/Template";
 
 const SingleProduct = () => {
@@ -16,6 +17,10 @@ const SingleProduct = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Single Product | Clazzy</title>
+            </Helmet>
+            <Nav />
             <Template productid={productid} />
         </>
     );

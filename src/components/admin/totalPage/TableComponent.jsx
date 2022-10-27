@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, {useState, useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
+import Pagination from "./Pagination";
 
 const TableComponent = () => {
     const [allProducts, setAllProducts] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(5);
 
     useEffect(() => {
         const getProducts = async () => {
@@ -14,7 +17,7 @@ const TableComponent = () => {
                 // console.log(data);
                 setAllProducts(data);
             } catch (error) {
-                console.log(error);
+                // console.log(error);
             }
         };
         getProducts();
@@ -27,11 +30,16 @@ const TableComponent = () => {
         // navigate("/admin/totalproducts");
     };
 
+    const lastPostIndex = currentPage * postsPerPage;
+    const firstPostIndex = lastPostIndex - postsPerPage;
+
+    const currentPosts = allProducts.slice(firstPostIndex, lastPostIndex);
+
     return (
         <>
             <div>
                 <div>
-                    <a href="/admin/createproducts">
+                    <a href="/admin/createproducts" className="pl-16">
                         <div className="ml-4 my-5 py-3 text-xs inline-flex items-center font-bold leading-sm uppercase px-5 bg-green-200 text-green-700 rounded-full">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -78,8 +86,8 @@ const TableComponent = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {allProducts &&
-                                allProducts.map((product) => {
+                            {currentPosts &&
+                                currentPosts.map((product) => {
                                     return (
                                         <>
                                             <tr
@@ -143,6 +151,12 @@ const TableComponent = () => {
                     </table>
                 </div>
             </div>
+            <Pagination
+                totalPosts={allProducts.length}
+                postsPerPage={postsPerPage}
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+            />
         </>
     );
 };

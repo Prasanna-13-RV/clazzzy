@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import axios from "axios";
 import {Link} from "react-router-dom";
-import Nav from "../navbar/Nav";
 import Recommand from "./Recommand";
 
 const Template = ({productid}) => {
@@ -57,7 +56,6 @@ const Template = ({productid}) => {
 
     return (
         <>
-            <Nav />
             <div className="relative z-10" role="dialog" aria-modal="true">
                 {/* <div className="fixed inset-0 z-10 overflow-y-auto"> */}
                 <div className="flex w-full items-stretch justify-center text-center md:items-center md:px-2 lg:px-4">

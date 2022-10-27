@@ -19,6 +19,7 @@ export default function SwiperProducts() {
                 style={{
                     "--swiper-navigation-color": "#fff",
                     "--swiper-pagination-color": "#fff",
+                    background: "#3f7290",
                 }}
                 speed={600}
                 parallax={true}
@@ -59,91 +60,77 @@ export default function SwiperProducts() {
                     className="parallax-bg"
                     style={{
                         background:
-                            "url(https://www.mattsenkumar.com/wp-content/uploads/2019/09/2306.jpg) center/cover no-repeat",
+                            "url(https://cdn.techinasia.com/wp-content/uploads/2015/07/online-shopping-ecommerce-ss-1920.png) center/cover no-repeat",
+                        width: "100%",
+                        height: "100vh",
                     }}
                     data-swiper-parallax="-23%"
                 ></div>
                 <SwiperSlide
-                    // style={{
-                    //     background:
-                    //         "url(https://swiperjs.com/demos/images/nature-1.jpg) center/cover no-repeat",
-                    //     width: "100%",
-                    //     height: "75vh",
-                    // }}
+                    style={{
+                        // background:
+                        //         "url(https://swiperjs.com/demos/images/nature-1.jpg) center/cover no-repeat",
+                        width: "100%",
+                        height: "80vh",
+                    }}
                 >
                     <div className="title" data-swiper-parallax="-300">
-                        Wanyt to Buy some Products
+                        Want to Buy some Products
                     </div>
                     {/* <div className="subtitle" data-swiper-parallax="-200">
                         Subtitle
                     </div> */}
                     <div className="text" data-swiper-parallax="-100">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Aliquam dictum mattis velit, sit amet faucibus
-                            felis iaculis nec. Nulla laoreet justo vitae
-                            porttitor porttitor. Suspendisse in sem justo.
-                            Integer laoreet magna nec elit suscipit, ac laoreet
-                            nibh euismod. Aliquam hendrerit lorem at elit
-                            facilisis rutrum. Ut at ullamcorper velit. Nulla
-                            ligula nisi, imperdiet ut lacinia nec, tincidunt ut
-                            libero. Aenean feugiat non eros quis feugiat.
+                            Shopping categories websites are a great way to find
+                            the perfect product. It is easy to navigate through
+                            the website and find what you are looking for.
                         </p>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide
                     style={{
-                        background:
-                            "url(https://swiperjs.com/demos/images/nature-1.jpg) center/cover no-repeat",
+                        // background:
+                        //     "url(https://swiperjs.com/demos/images/nature-1.jpg) center/cover no-repeat",
                         width: "100%",
-                        height: "75vh",
+                        height: "80vh",
                     }}
                 >
                     <div className="title" data-swiper-parallax="-300">
-                        Slide 2
+                        For some, shopping is an art; for others, it's a sport
                     </div>
-                    <div className="subtitle" data-swiper-parallax="-200">
+                    {/* <div className="subtitle" data-swiper-parallax="-200">
                         Subtitle
-                    </div>
+                    </div> */}
                     <div className="text" data-swiper-parallax="-100">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Aliquam dictum mattis velit, sit amet faucibus
-                            felis iaculis nec. Nulla laoreet justo vitae
-                            porttitor porttitor. Suspendisse in sem justo.
-                            Integer laoreet magna nec elit suscipit, ac laoreet
-                            nibh euismod. Aliquam hendrerit lorem at elit
-                            facilisis rutrum. Ut at ullamcorper velit. Nulla
-                            ligula nisi, imperdiet ut lacinia nec, tincidunt ut
-                            libero. Aenean feugiat non eros quis feugiat.
+                            The websites have some of the best deals that you
+                            can find online. The prices are usually lower than
+                            what you would see in stores, especially if you are
+                            shopping for clothes.
                         </p>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide
                     style={{
-                        background:
-                            "url(https://swiperjs.com/demos/images/nature-1.jpg) center/cover no-repeat",
+                        // background:
+                        //     "url(https://swiperjs.com/demos/images/nature-1.jpg) center/cover no-repeat",
                         width: "100%",
-                        height: "75vh",
+                        height: "80vh",
                     }}
                 >
                     <div className="title" data-swiper-parallax="-300">
-                        Slide 3
+                        The quickest way to know a woman is to go shopping with
+                        her
                     </div>
-                    <div className="subtitle" data-swiper-parallax="-200">
+                    {/* <div className="subtitle" data-swiper-parallax="-200">
                         Subtitle
-                    </div>
+                    </div> */}
                     <div className="text" data-swiper-parallax="-100">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Aliquam dictum mattis velit, sit amet faucibus
-                            felis iaculis nec. Nulla laoreet justo vitae
-                            porttitor porttitor. Suspendisse in sem justo.
-                            Integer laoreet magna nec elit suscipit, ac laoreet
-                            nibh euismod. Aliquam hendrerit lorem at elit
-                            facilisis rutrum. Ut at ullamcorper velit. Nulla
-                            ligula nisi, imperdiet ut lacinia nec, tincidunt ut
-                            libero. Aenean feugiat non eros quis feugiat.
+                            The websites also offer a variety of products from
+                            different brands and designers so it is easier to
+                            find something that fits your personal style.
                         </p>
                     </div>
                 </SwiperSlide>

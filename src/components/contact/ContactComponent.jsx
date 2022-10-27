@@ -1,6 +1,19 @@
-import React from "react";
+import axios from "axios";
+import React, {useState} from "react";
 
 const ContactComponent = () => {
+    const [fullname, setFullname] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+
+    const handleSubmit = () => {
+        axios.post(`http://localhost:8080/contact`, {
+            fullname,
+            email,
+            message,
+        });
+    };
+
     return (
         <>
             <section className="text-gray-100 px-8">
@@ -15,9 +28,7 @@ const ContactComponent = () => {
                                 {/* <span className="underline">email</span> instead. */}
                             </div>
                         </div>
-                        <div className="mt-8 text-center">
-                            
-                        </div>
+                        <div className="mt-8 text-center"></div>
                     </div>
                     <div className="">
                         <div>
@@ -28,6 +39,7 @@ const ContactComponent = () => {
                                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                                 type="text"
                                 placeHolder=""
+                                onChange={(e) => setFullname(e.target.value)}
                             />
                         </div>
                         <div className="mt-8">
@@ -37,16 +49,21 @@ const ContactComponent = () => {
                             <input
                                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                                 type="text"
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div className="mt-8">
                             <span className="uppercase text-sm text-gray-600 font-bold">
                                 Message
                             </span>
-                            <textarea style={{resize: "none"}} className="w-full h-32 text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"></textarea>
+                            <textarea
+                                style={{resize: "none"}}
+                                className="w-full h-32 text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
+                                onChange={(e) => setMessage(e.target.value)}
+                            ></textarea>
                         </div>
                         <div className="mt-8">
-                            <button className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
+                            <button onClick={handleSubmit} className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
                                 Send Message
                             </button>
                         </div>

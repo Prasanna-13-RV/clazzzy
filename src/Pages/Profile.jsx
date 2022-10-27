@@ -56,7 +56,7 @@ const Profile = () => {
     return (
         <>
             <Helmet>
-                <title>Profile</title>
+                <title>Profile | Clazzzy</title>
             </Helmet>
             <Nav />
 

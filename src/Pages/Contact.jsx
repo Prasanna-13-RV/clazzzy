@@ -1,11 +1,15 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import ContactComponent from "../components/contact/ContactComponent";
-import Nav from "../components/navbar/Nav"
+import Nav from "../components/navbar/Nav";
 
 const Contact = () => {
     return (
         <>
-        <Nav />
+            <Helmet>
+                <title>Contact Us | Clazzy</title>
+            </Helmet>
+            <Nav />
             <ContactComponent />
         </>
     );

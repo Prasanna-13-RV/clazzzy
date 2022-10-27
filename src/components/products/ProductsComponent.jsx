@@ -6,6 +6,13 @@ import TableComponent from "./TableComponent";
 import PaginationComponent from "./PaginationComponent";
 import SortComponent from "./SortComponent";
 import CategoriesComponent from "./CategoriesComponent";
+import {
+    ChevronDownIcon,
+    FunnelIcon,
+    MinusIcon,
+    PlusIcon,
+    Squares2X2Icon,
+} from "@heroicons/react/20/solid";
 
 import "./CSS/products.css";
 
@@ -28,7 +35,7 @@ const ProductsComponent = () => {
                 }&categories=${filterCategories.toString()}&search=${search}`;
                 const {data} = await axios.get(url);
                 setObj(data);
-                console.log(data, "data");
+                // console.log(data, "data");
             } catch (err) {
                 console.log(err);
             }
@@ -46,28 +53,90 @@ const ProductsComponent = () => {
                             <SearchComponent
                                 setSearch={(search) => setSearch(search)}
                             />
-                            <img
-                                className="h-10 z-50"
-                                src="https://img.icons8.com/ios-filled/45/000000/filter--v1.png"
-                                onClick={() => setClick(!click)}
-                            />
-                        </div>
-                        {click ? (
-                            <div className="bg-white absolute top-[-15px] right-10 border w-[200px] pl-6 my-2 py-3">
-                                <SortComponent
-                                    sort={sort}
-                                    setSort={(sort) => setSort(sort)}
-                                />
-                                <CategoriesComponent
-                                    filterCategories={filterCategories}
-                                    categories={
-                                        obj.categories ? obj.categories : []
-                                    }
-                                    setFilterCategories={(category) =>
-                                        setFilterCategories(category)
-                                    }
+                            <div className="flex justify-center items-center">
+                                {/* <img
+                                    className="h-10 z-50"
+                                    src="https://img.icons8.com/ios-filled/45/000000/filter--v1.png"
+                                    onClick={() => setClick(!click)}
+                                /> */}
+                                <FunnelIcon
+                                    className="h-5 w-5 cursor-pointer"
+                                    aria-hidden="true"
+                                    onClick={() => setClick(!click)}
                                 />
                             </div>
+                        </div>
+                        {click ? (
+                            <>
+                                <div className="fixed top-0 left-0 w-screen h-screen bg-[rgba(0,0,0,0.5)] flex justify-center items-center z-40"></div>
+                                <div
+                                    id="small-modal"
+                                    tabindex="-1"
+                                    className="flex justify-center items-center fixed z-50 w-full md:inset-0 h-modal md:h-full"
+                                >
+                                    <div className="relative p-4 w-full max-w-md h-full md:h-auto">
+                                        <div className="relative bg-white rounded-lg shadow">
+                                            <div className="flex justify-between items-center p-5 rounded-t border-b">
+                                                <h3 className="text-xl font-medium text-gray-900">
+                                                    Category
+                                                </h3>
+                                                <button
+                                                    type="button"
+                                                    className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                                                    data-modal-toggle="small-modal"
+                                                    onClick={() =>
+                                                        setClick(!click)
+                                                    }
+                                                >
+                                                    <svg
+                                                        aria-hidden="true"
+                                                        className="w-5 h-5"
+                                                        fill="currentColor"
+                                                        viewBox="0 0 20 20"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                        <path
+                                                            fill-rule="evenodd"
+                                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                            clip-rule="evenodd"
+                                                        ></path>
+                                                    </svg>
+                                                    <span className="sr-only">
+                                                        Close modal
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <div className="pb-6 space-y-6">
+                                                <div className="bg-white right-10 w-[200px] pl-6 my-2 py-3">
+                                                    <SortComponent
+                                                        sort={sort}
+                                                        setSort={(sort) =>
+                                                            setSort(sort)
+                                                        }
+                                                    />
+                                                    <CategoriesComponent
+                                                        filterCategories={
+                                                            filterCategories
+                                                        }
+                                                        categories={
+                                                            obj.categories
+                                                                ? obj.categories
+                                                                : []
+                                                        }
+                                                        setFilterCategories={(
+                                                            category
+                                                        ) =>
+                                                            setFilterCategories(
+                                                                category
+                                                            )
+                                                        }
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
                         ) : null}
                     </div>
                     <div>

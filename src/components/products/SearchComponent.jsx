@@ -16,7 +16,7 @@ const SearchComponent = ({setSearch}) => {
                 Search
             </label>
             <div className="relative w-full">
-                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                {/* <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                     <svg
                         aria-hidden="true"
                         className="w-5 h-5 text-gray-500"
@@ -32,12 +32,12 @@ const SearchComponent = ({setSearch}) => {
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                         ></path>
                     </svg>
-                </div>
+                </div> */}
                 <input
                     type="search"
                     id="default-search"
-                    className="block p-4 pl-10 w-[50%] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                    placeholder="Search Mockups, Logos..."
+                    className="w-1/2 text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
+                    placeholder="Search Products..."
                     required
                     onChange={({currentTarget: input}) =>
                         setSearch(input.value)

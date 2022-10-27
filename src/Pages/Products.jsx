@@ -5,6 +5,7 @@ import Footer from "../components/footer/Footer";
 import ProductsComponent from "../components/products/ProductsComponent";
 import {Navigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import { Helmet } from "react-helmet";
 
 const Products = () => {
     const dispatch = useDispatch();
@@ -16,6 +17,9 @@ const Products = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Product | Clazzy</title>
+            </Helmet>
             <Nav />
             <SwiperProducts />
             <ProductsComponent />

@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, {useState, useEffect} from "react";
+import {Link, useNavigate} from "react-router-dom";
 
 const Recommand = ({category}) => {
     const [products, setProducts] = useState([]);
     const [recommandation, setRecommandation] = useState([]);
+    const [recommand, setRecommand] = useState([]);
 
     const getProducts = () => {
         axios
@@ -13,33 +15,46 @@ const Recommand = ({category}) => {
     useEffect(() => {
         getProducts();
     }, []);
-    console.log(products);
+    // console.log(products);
 
     const recommandProducts = () => {
-        category.map((e) => {
-            if (e === products.categories) {
-                setRecommandation([...recommandation, e]);
-            }
-            console.log(e);
-        });
+        {
+            products &&
+                products.map((e, index) => {
+                    // console.log(e.categories);
+                    e.categories.forEach((element2) => {
+                        category.forEach((element) => {
+                            if (element == element2) {
+                                setRecommandation([...recommandation, e]);
+                            }
+                        });
+                    });
+                });
+        }
     };
+
     useEffect(() => {
         recommandProducts();
-        // console.log(recommandation);
     });
 
     return (
         <>
             <section className="w-full my-5 px-10">
                 <h1 className="w-full m-5 text-2xl flex justify-center items-center">
-                    Recommanded Products
+                    Recommended Products
+                    {/* {JSON.stringify(products[0])} */}
                 </h1>
                 <div className="flex flex-row flex-wrap justify-center items-center">
                     {products &&
                         products.map((product) => {
                             return (
                                 <div className="max-w-sm rounded overflow-hidden shadow-lg m-3">
-                                    <img className="w-full" src={product.img} />
+                                    <Link to={`/singleproduct/${product._id}`}>
+                                        <img
+                                            className="w-full"
+                                            src={product.img}
+                                        />
+                                    </Link>
                                     <div className="px-6 py-4">
                                         <div className="font-bold text-xl mb-2">
                                             {product.name}

@@ -20,7 +20,9 @@ const CategoriesComponent = ({
 
     return (
         <div>
-            <h1>Filter By Categories</h1>
+            <h1 className="text-lg font-medium text-gray-900 my-4">
+                Filter By Categories
+            </h1>
             <div>
                 {categories.map((category) => {
                     return (

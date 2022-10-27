@@ -15,7 +15,7 @@ const HeroSectionComponents = () => {
                     </svg>
                     <img
                         className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
-                        src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                        src="https://www.revv.co.in/blogs/wp-content/uploads/2020/03/shopping-in-trivendram-1280x720.jpg"
                         alt=""
                     />
                 </div>
@@ -25,31 +25,24 @@ const HeroSectionComponents = () => {
                             Brand new
                         </p>
                         <h2 className="mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                            Everything you
+                            Happiness is not
                             <br className="hidden md:block" />
-                            can imagine{" "}
+                            in money,{" "}
                             <span className="inline-block text-deep-purple-accent-400">
-                                is real
+                                but in shopping
                             </span>
                         </h2>
                         <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-                            Sed ut perspiciatis unde omnis iste natus error sit
-                            voluptatem accusantium doloremque laudantium, totam
-                            rem aperiam, eaque ipsa quae. explicabo.
+                            Shopping is a bit of a relaxing hobby for me, which
+                            is sometimes troubling for the bank balance
                         </p>
                         <div className="flex items-center">
                             <a
-                                href="/"
+                                href="/contact"
+                                aria-label=""
                                 className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-[#3E3B42] bg-[#FFCDB2] transition duration-200 rounded shadow-md hover:bg-[#F2A69F] focus:shadow-outline focus:outline-none"
                             >
-                                Get started
-                            </a>
-                            <a
-                                href="/"
-                                aria-label=""
-                                className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700"
-                            >
-                                Learn more
+                                Contact Us
                             </a>
                         </div>
                     </div>

@@ -10,6 +10,7 @@ const PaginationComponent = ({page, total, limit, setPage}) => {
     };
 
     return (
+
         <div className={styles.container}>
             <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
                 <div className="flex flex-1 justify-between sm:hidden">
@@ -29,9 +30,10 @@ const PaginationComponent = ({page, total, limit, setPage}) => {
                 <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
                     <div>
                         <p className="text-sm text-gray-700">
-                            Showing <span className="font-medium">1</span> to{" "}
-                            <span className="font-medium">10</span> of{" "}
-                            <span className="font-medium">{totalPages}</span>{" "}
+                            Showing  {" "}
+                            {/* <span className="font-medium">1</span> to{" "}
+                            <span className="font-medium">10</span> of{" "} */}
+                            <span className="font-medium">{totalPages} Page</span>{" "}
                             results
                         </p>
                     </div>
@@ -40,7 +42,7 @@ const PaginationComponent = ({page, total, limit, setPage}) => {
                             className="isolate inline-flex -space-x-px rounded-md shadow-sm"
                             aria-label="Pagination"
                         >
-                            <a
+                            {/* <a
                                 href="#"
                                 className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
                             >
@@ -49,24 +51,24 @@ const PaginationComponent = ({page, total, limit, setPage}) => {
                                     className="h-5 w-5"
                                     aria-hidden="true"
                                 />
-                            </a>
+                            </a> */}
                             {/* Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" */}
+                            
                             {totalPages > 0 &&
-                                [...Array(totalPages)].map((val, index) => {
+                                [...Array(totalPages)].map((val, index) => (
                                     <button
-                                        key={index}
+                                    
                                         onClick={() => onClick(index)}
                                         className={
                                             page === index + 1
-                                                ? `${styles.page_btn} ${styles.active}`
-                                                : styles.page_btn
+                                                ? "relative z-10 inline-flex items-center border border-indigo-500 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-600 focus:z-20"
+                                                : "relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
                                         }
-                                        // className="relative z-10 inline-flex items-center border border-indigo-500 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-600 focus:z-20"
+                                        key={index}
                                     >
-                                        Hello
                                         {index + 1}
-                                    </button>;
-                                })}
+                                    </button>
+                                ))}
                             {/* <a
                             href="#"
                             aria-current="page"
@@ -75,7 +77,7 @@ const PaginationComponent = ({page, total, limit, setPage}) => {
                             1
                         </a> */}
 
-                            <a
+                            {/* <a
                                 href="#"
                                 className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
                             >
@@ -84,7 +86,7 @@ const PaginationComponent = ({page, total, limit, setPage}) => {
                                     className="h-5 w-5"
                                     aria-hidden="true"
                                 />
-                            </a>
+                            </a> */}
                         </nav>
                     </div>
                 </div>
