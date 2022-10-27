@@ -1,8 +1,14 @@
 import React from "react";
 import Nav from "../../components/navbarAdmin/Nav";
 import {Helmet} from "react-helmet";
+import {useSelector} from "react-redux";
+import {Navigate} from "react-router-dom";
 
 const Dashboard = () => {
+    const {user} = useSelector((state) => ({...state}));
+    if (!user) {
+        return <Navigate to="/login" />;
+    }
     return (
         <>
             <Helmet>
