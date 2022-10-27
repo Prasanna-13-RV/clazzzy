@@ -28,7 +28,7 @@ router.post(
         const description = req.body.description;
         const rating = req.body.rating;
 
-        console.log(req.file);
+        // console.log(req.file);
 
         const product = new Products({
             name: name,
@@ -52,6 +52,8 @@ router.post(
     }
 );
 
+
+
 router.get("/admin/readproducts", (req, res) => {
     const readProducts = Products.find({}, (err, result) => {
         try {
@@ -67,7 +69,7 @@ router.get("/admin/updateproducts/:id", async (req, res) => {
     try {
         await Products.findById(id, (err, response) => {
             res.json(response);
-            console.log(response);
+            // console.log(response);
         });
     } catch (err) {
         console.log(err);
@@ -101,7 +103,7 @@ router.put("/admin/updateproducts/:id", async (req, res) => {
 
 router.delete("/admin/deleteproducts/:id", async (req, res) => {
     const id = req.params.id;
-    console.log(id);
+    // console.log(id);
     await Products.findByIdAndRemove(id).exec();
     res.send("Deleted");
 });

@@ -7,7 +7,7 @@ router.get("/singleproduct/:id", async (req, res) => {
     try {
         await Products.findById(id, (err, response) => {
             res.json(response);
-            console.log(response);
+            // console.log(response);
         });
     } catch (err) {
         console.log(err);

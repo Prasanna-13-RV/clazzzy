@@ -16,4 +16,18 @@ router.get("/recommend", async (req, res) => {
     }
 });
 
+router.get("/home", async (req, res) => {
+    try {
+        const homeProducts = Products.find((err, result) => {
+            try {
+                res.send(result.slice(0, 4));
+            } catch (error) {
+                console.log(error);
+            }
+        }).sort({count: -1});
+    } catch (error) {
+        console.log(error);
+    }
+});
+
 module.exports = router;
