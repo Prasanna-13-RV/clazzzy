@@ -5,12 +5,12 @@ import storage from 'redux-persist/lib/storage';
 
 import { rootReducer } from './root-reducer';
 
-import { NODE_ENV } from '../utils/common.util';
+// import { NODE_ENV } from '../utils/common.util';
 
 
 const middlewares = [];
 
-if (NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
 	middlewares.push(logger);
 }
 

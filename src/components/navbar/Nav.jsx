@@ -20,6 +20,8 @@ export default function Nav({current}) {
         {name: "Contact Us", href: "/contact", current: current},
     ];
 
+    console.log(current);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
