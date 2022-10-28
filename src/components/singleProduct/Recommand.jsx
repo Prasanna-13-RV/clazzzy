@@ -62,6 +62,7 @@ const Recommand = ({category}) => {
                     Recommended Products
                     {/* {JSON.stringify(products)} */}
                 </h1>
+                
                 <div className="flex flex-row flex-wrap justify-center items-center">
                     {products &&
                         products.map((product) => {
