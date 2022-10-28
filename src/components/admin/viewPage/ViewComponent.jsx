@@ -7,7 +7,7 @@ const ViewComponent = ({productid}) => {
 
     const products = () => {
         axios
-            .get(`https://clazzzy.herokuapp.com/admin/viewproducts/${productid}`)
+            .get(`https://clazzzy-server.herokuapp.com/admin/viewproducts/${productid}`)
             .then((response) => {
                 setCurrentProduct(response.data);
             });

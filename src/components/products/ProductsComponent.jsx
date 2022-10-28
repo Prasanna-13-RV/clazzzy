@@ -17,7 +17,7 @@ import {
 import "./CSS/products.css";
 
 const base_url = process.env.REACT_APP_API;
-// const base_url = `https://clazzzy.herokuapp.com/api/product`;
+// const base_url = `https://clazzzy-server.herokuapp.com/api/product`;
 
 const ProductsComponent = () => {
     const [obj, setObj] = useState({});

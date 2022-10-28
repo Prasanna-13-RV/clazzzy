@@ -12,7 +12,7 @@ const Template = ({productid}) => {
 
     const products = () => {
         axios
-            .get(`https://clazzzy.herokuapp.com/singleproduct/${productid}`)
+            .get(`https://clazzzy-server.herokuapp.com/singleproduct/${productid}`)
             .then((response) => {
                 setCurrentProduct({...response.data, quantity: 1});
             });

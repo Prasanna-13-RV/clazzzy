@@ -42,7 +42,7 @@ const AddCartComponent = () => {
             handler: async (response) => {
                 try {
                     const verifyUrl =
-                        "https://clazzzy.herokuapp.com/api/payment/verify";
+                        "https://clazzzy-server.herokuapp.com/api/payment/verify";
                     const {data} = await axios.post(verifyUrl, response);
                     // console.log(data);
                 } catch (error) {

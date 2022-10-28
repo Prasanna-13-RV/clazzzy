@@ -8,7 +8,7 @@ const Recommand = ({category}) => {
     const [recommand, setRecommand] = useState([]);
 
     const getProducts = () => {
-        axios.get("https://clazzzy.herokuapp.com/recommend").then((response) => {
+        axios.get("https://clazzzy-server.herokuapp.com/recommend").then((response) => {
             // setProducts(response.data.filter);
             const categoriesOptions = [
                 "Clothing",
@@ -60,7 +60,7 @@ const Recommand = ({category}) => {
             <section className="w-full my-5 px-10">
                 <h1 className="w-full m-5 text-2xl flex justify-center items-center">
                     Recommended Products
-                    {JSON.stringify(products)}
+                    {/* {JSON.stringify(products)} */}
                 </h1>
                 <div className="flex flex-row flex-wrap justify-center items-center">
                     {products &&
