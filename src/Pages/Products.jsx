@@ -21,7 +21,7 @@ const Products = () => {
                 <title>Product | Clazzy</title>
             </Helmet>
             <Nav />
-            {JSON.stringify(user)}
+            {/* {JSON.stringify(user)} */}
             <SwiperProducts />
             <ProductsComponent />
             <Footer />
