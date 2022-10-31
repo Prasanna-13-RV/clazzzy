@@ -1,6 +1,27 @@
 const router = require("express").Router();
 const Products = require("../models/Products");
+const SellerUser = require("../models/SellerUser");
 const nodemailer = require("nodemailer");
+
+router.post("/login", async (req, res) => {
+    const {username, password} = req.body;
+
+    try {
+        const loginUser = await SellerUser.find({
+            username: username,
+            password: password,
+        });
+        if (loginUser) {
+            res.json(loginUser);
+        } else {
+            res.status(401).send({
+                message: "Incorrect username or password",
+            });
+        }
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 router.post("/:id", (req, res) => {
     const id = req.params.id;
@@ -39,34 +60,31 @@ router.post("/:id", (req, res) => {
         html: output,
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-        const users = new SellerUser({
-            id: id,
-            username: username,
-            email: email,
-            password: password,
-        });
-
+    transporter.sendMail(mailOptions, async (error, info) => {
         try {
-            users.save((err, user) => {
-                if (err) {
-                    console.log(err);
-                    res.status(500).send(err);
-                } else {
-                    res.status(200).send(output);
-                }
-            });
-            res.redirect("/products");
-            console.log("Email has been sent");
+            const iduser = await SellerUser.find({userid: id});
+            if (!iduser) {
+                const users = new SellerUser({
+                    userid: id,
+                    username: username,
+                    email: email,
+                    password: password,
+                });
+                users.save((err, response) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        res.status(200).json(response);
+                    }
+                });
+                console.log("Email has been sent");
+            } else {
+                console.log("User Already Exist");
+            }
         } catch (error) {
             console.log(error);
         }
     });
-});
-
-router.post("/login", (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
 });
 
 module.exports = router;
