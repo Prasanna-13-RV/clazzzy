@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
-const cors = require("cors"); 
+const cors = require("cors");
 
 const multer = require("multer");
 const app = express();
@@ -21,6 +21,15 @@ dbConnect();
 app.use(express.json());
 app.use(cors());
 
+app.use(
+    cors({
+        origin: ["https://clazzzy.herokuapp.com/"],
+        methods: ["GET", "POST", "DELETE"],
+        credentials: true,
+        origin: true,
+    })
+);
+
 app.use("/api", productsRoutes);
 app.use("/", crudRoutes);
 app.use("/", singleproduct);
@@ -28,8 +37,6 @@ app.use("/", addtocart);
 app.use("/", recommend);
 app.use("/", contactus);
 app.use("/api/payment", razorpay);
-
-
 
 app.use("/seller", seller);
 
