@@ -1,10 +1,13 @@
 import axios from "axios";
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 const ContactComponent = () => {
     const [fullname, setFullname] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,7 +17,7 @@ const ContactComponent = () => {
                 email,
                 message,
             });
-            console.log("Hello from");
+            navigate("/")
         } catch (error) {
             console.log(error);
         }
