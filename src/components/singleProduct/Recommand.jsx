@@ -70,10 +70,7 @@ const Recommand = ({category}) => {
                         products.map((product) => {
                             return (
                                 <div className="max-w-sm rounded overflow-hidden shadow-lg m-3">
-                                    <a
-                                        target="_blank"
-                                        href={`/singleproduct/${product._id}`}
-                                    >
+                                    <a href={`/singleproduct/${product._id}`}>
                                         <img
                                             className="w-full"
                                             src={product.img}

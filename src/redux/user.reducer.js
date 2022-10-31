@@ -18,6 +18,8 @@ const userReducer = (state = null, action) => {
             return action.payload;
         case "LOGOUT":
             return null;
+        case "SET_SELLER_USER":
+            return action.payload;
         default:
             return state;
     }

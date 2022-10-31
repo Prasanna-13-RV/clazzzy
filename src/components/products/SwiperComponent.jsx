@@ -36,7 +36,7 @@ export default function SwiperProducts() {
                 email: user.email,
                 password: generatePassword(),
             });
-            // console.log(`${process.env.REACT_APP_API_URL}/seller/${user.uid}`);
+        
         } catch (error) {
             console.log(error);
         }
