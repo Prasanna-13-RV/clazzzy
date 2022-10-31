@@ -22,7 +22,7 @@ const Nav = () => {
                             <div className="px-4 py-6 text-center border-b">
                                 <h1 className="text-xl font-bold leading-none">
                                     <a
-                                        href="/admin/dashboard"
+                                        href="/sellers/dashboard"
                                         className="text-[#3E3B42]"
                                     >
                                         CLAZZZY
@@ -33,7 +33,7 @@ const Nav = () => {
                                 <ul className="space-y-1">
                                     <li>
                                         <a
-                                            href="/admin/totalproducts"
+                                            href="/sellers/totalproducts"
                                             className="flex bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4"
                                         >
                                             <svg
@@ -51,7 +51,7 @@ const Nav = () => {
                                     </li>
                                     <li>
                                         <a
-                                            href="/admin/createproducts"
+                                            href="/sellers/createproducts"
                                             className="flex bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4"
                                         >
                                             <svg

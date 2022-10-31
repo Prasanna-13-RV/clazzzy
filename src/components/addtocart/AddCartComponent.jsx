@@ -41,8 +41,7 @@ const AddCartComponent = () => {
             order_id: data.id,
             handler: async (response) => {
                 try {
-                    const verifyUrl =
-                        "https://clazzzy-server.herokuapp.com/api/payment/verify";
+                    const verifyUrl = `${process.env.REACT_APP_API_URL}/api/payment/verify`;
                     const {data} = await axios.post(verifyUrl, response);
                     // console.log(data);
                 } catch (error) {
@@ -59,7 +58,7 @@ const AddCartComponent = () => {
 
     const handlePayment = async () => {
         try {
-            const orderurl = "http://localhost:8080/api/payment/orders";
+            const orderurl = `${process.env.REACT_APP_API_URL}/api/payment/orders`;
             const {data} = await axios.post(orderurl, {amount: totalAmount});
             // console.log(data);
             initPayment(data.data);

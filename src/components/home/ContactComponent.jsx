@@ -103,7 +103,7 @@ const ContactComponent = () => {
                                                         type="text"
                                                         className="w-5/6 text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                                                         id="exampleInput7"
-                                                        placeHolder="Name"
+                                                        placeholder="Name"
                                                     />
                                                 </div>
                                                 <div className="form-group mb-6 w-full flex flex-row justify-center items-center">
@@ -111,7 +111,7 @@ const ContactComponent = () => {
                                                         type="email"
                                                         className="w-5/6 text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                                                         id="exampleInput8"
-                                                        placeHolder="Email address"
+                                                        placeholder="Email address"
                                                     />
                                                 </div>
                                                 <div className="form-group mb-6 w-full flex flex-row justify-center items-center">
@@ -119,7 +119,7 @@ const ContactComponent = () => {
                                                         className="w-5/6 text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                                                         id="exampleFormControlTextarea13"
                                                         rows="3"
-                                                        placeHolder="Message"
+                                                        placeholder="Message"
                                                     ></textarea>
                                                 </div>
                                                 {/* <div className="form-group form-check text-center mb-6">

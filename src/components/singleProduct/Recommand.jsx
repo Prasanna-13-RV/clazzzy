@@ -8,26 +8,28 @@ const Recommand = ({category}) => {
     const [recommand, setRecommand] = useState([]);
 
     const getProducts = () => {
-        axios.get("https://clazzzy-server.herokuapp.com/recommend").then((response) => {
-            // setProducts(response.data.filter);
-            const categoriesOptions = [
-                "Clothing",
-                "Fruits",
-                "Vegetables",
-                "Screws",
-                "Shirts",
-            ];
-            const all = response.data.filter((pro) => {
-                // return pro.categories.forEach((e) => {
-                // categoriesOptions.forEach(element => {
-                // })
-                return pro.categories.some((element) =>
-                    category.includes(element)
-                );
-                // });
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/recommend`)
+            .then((response) => {
+                // setProducts(response.data.filter);
+                const categoriesOptions = [
+                    "Clothing",
+                    "Fruits",
+                    "Vegetables",
+                    "Screws",
+                    "Shirts",
+                ];
+                const all = response.data.filter((pro) => {
+                    // return pro.categories.forEach((e) => {
+                    // categoriesOptions.forEach(element => {
+                    // })
+                    return pro.categories.some((element) =>
+                        category.includes(element)
+                    );
+                    // });
+                });
+                setProducts(all);
             });
-            setProducts(all);
-        });
     };
 
     useEffect(() => {
@@ -62,7 +64,7 @@ const Recommand = ({category}) => {
                     Recommended Products
                     {/* {JSON.stringify(products)} */}
                 </h1>
-                
+
                 <div className="flex flex-row flex-wrap justify-center items-center">
                     {products &&
                         products.map((product) => {

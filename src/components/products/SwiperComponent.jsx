@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
 
@@ -11,8 +11,37 @@ import "./swiper.css";
 
 // import required modules
 import {Parallax, Pagination, Navigation, Keyboard, Scrollbar} from "swiper";
+import {useSelector} from "react-redux";
+import axios from "axios";
 
 export default function SwiperProducts() {
+    const {user} = useSelector((state) => ({...state}));
+
+    const generatePassword = () => {
+        var pass = "";
+        var str =
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+            "abcdefghijklmnopqrstuvwxyz0123456789@#$";
+        for (let i = 1; i <= 10; i++) {
+            var char = Math.floor(Math.random() * str.length + 1);
+            pass += str.charAt(char);
+        }
+        return pass;
+    };
+
+    const sellProducts = () => {
+        try {
+            axios.post(`${process.env.REACT_APP_API_URL}/seller/${user.uid}`, {
+                username: user.email.split("@")[0],
+                email: user.email,
+                password: generatePassword(),
+            });
+            // console.log(`${process.env.REACT_APP_API_URL}/seller/${user.uid}`);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <>
             <Swiper
@@ -113,8 +142,6 @@ export default function SwiperProducts() {
                 </SwiperSlide>
                 <SwiperSlide
                     style={{
-                        // background:
-                        //     "url(https://swiperjs.com/demos/images/nature-1.jpg) center/cover no-repeat",
                         width: "100%",
                         height: "80vh",
                     }}
@@ -132,6 +159,11 @@ export default function SwiperProducts() {
                             different brands and designers so it is easier to
                             find something that fits your personal style.
                         </p>
+                    </div>
+                    <div>
+                        <button onClick={sellProducts}>
+                            Want to sell products
+                        </button>
                     </div>
                 </SwiperSlide>
             </Swiper>

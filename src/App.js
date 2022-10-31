@@ -14,6 +14,8 @@ import Contact from "./Pages/Contact";
 import Profile from "./Pages/Profile";
 import Dashboard from "./Pages/Admin/Dashboard";
 import ForgotPassword from "./Pages/Auth/ForgotPassword";
+import LoginAdmin from "./Pages/Admin/auth/LoginAdmin";
+import UpdateProfile from "./Pages/UpdateProfile";
 
 function App() {
     return (
@@ -28,25 +30,30 @@ function App() {
                 <Route path="/addtocart" element={<AddToCart />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/profile/:id" element={<Profile />} />
-                <Route path="/admin/dashboard" element={<Dashboard />} />
+                <Route path="/updateprofile/:id" element={<UpdateProfile />} />
                 <Route
                     path="/singleproduct/:productid"
                     element={<SingleProduct />}
                 />
+
+                {/* admin panel */}
+
+                <Route path="/sellers/login" element={<LoginAdmin />} />
+                <Route path="/sellers/dashboard" element={<Dashboard />} />
                 <Route
-                    path="/admin/totalproducts"
+                    path="/sellers/totalproducts"
                     element={<Total_Products />}
                 />
                 <Route
-                    path="/admin/createproducts"
+                    path="/sellers/createproducts"
                     element={<Create_Products />}
                 />
                 <Route
-                    path="/admin/updateproducts/:productid"
+                    path="/sellers/updateproducts/:productid"
                     element={<Update_Products />}
                 />
                 <Route
-                    path="/admin/viewproducts/:productid"
+                    path="/sellers/viewproducts/:productid"
                     element={<View_Products />}
                 />
             </Routes>

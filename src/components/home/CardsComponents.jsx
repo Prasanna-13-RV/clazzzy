@@ -7,7 +7,7 @@ const CardsComponents = () => {
 
     const getProducts = () => {
         axios
-            .get("https://clazzzy-server.herokuapp.com/home")
+            .get(`${process.env.REACT_APP_API_URL}/home`)
             .then((response) => setProducts(response.data));
     };
 
@@ -37,7 +37,7 @@ const CardsComponents = () => {
                                 </p>
                             </div>
                             <div className="px-6 pt-4 pb-2">
-                                <p className="text-gray-500 text-sm">
+                                <div className="text-gray-500 text-sm">
                                     {product.categories &&
                                         product.categories.map(
                                             (category, err) => {
@@ -51,7 +51,7 @@ const CardsComponents = () => {
                                                 );
                                             }
                                         )}
-                                </p>
+                                </div>
                             </div>
                         </div>
                     ))}

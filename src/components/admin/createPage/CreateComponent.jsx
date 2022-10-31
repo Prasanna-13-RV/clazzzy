@@ -26,7 +26,7 @@ const CreateComponent = () => {
         productDetails.append("description", description);
         productDetails.append("image", image);
         axios
-            .post("https://clazzzy-server.herokuapp.com/admin/createproducts", productDetails)
+            .post(`${process.env.REACT_APP_API_URL}/admin/createproducts`, productDetails)
             .then((response) => console.log(response));
         // console.log({
         //     name: name,

@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from "react";
 import {Helmet} from "react-helmet";
 import Nav from "../components/navbar/Nav";
-import ProfileComponent from "../components/profile/ProfileComponent";
+import ProfileUpdateComponent from "../components/profile/ProfileUpdateComponent";
 
-const Profile = () => {
+const UpdateProfile = () => {
     return (
         <>
             <Helmet>
-                <title>Profile | Clazzzy</title>
+                <title>Update Profile | Clazzzy</title>
             </Helmet>
             <Nav />
-            <ProfileComponent />
+            <ProfileUpdateComponent />
         </>
     );
 };
 
-export default Profile;
+export default UpdateProfile;

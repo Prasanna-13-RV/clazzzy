@@ -27,7 +27,7 @@ const PaginationComponent = ({page, total, limit, setPage}) => {
                         Next
                     </a>
                 </div>
-                <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+                <div className="hidden pr-24 sm:flex sm:flex-1 sm:items-center sm:justify-between">
                     <div>
                         <p className="text-sm text-gray-700">
                             Showing  {" "}

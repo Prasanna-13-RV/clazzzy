@@ -16,8 +16,6 @@ import {
 
 import "./CSS/products.css";
 
-const base_url = process.env.REACT_APP_API;
-// const base_url = `https://clazzzy-server.herokuapp.com/api/product`;
 
 const ProductsComponent = () => {
     const [obj, setObj] = useState({});
@@ -30,7 +28,7 @@ const ProductsComponent = () => {
     useEffect(() => {
         const getAllProducts = async () => {
             try {
-                const url = `${base_url}?page=${page}&sort=${sort.sort},${
+                const url = `${process.env.REACT_APP_API_URL}/api/product/?page=${page}&sort=${sort.sort},${
                     sort.order
                 }&categories=${filterCategories.toString()}&search=${search}`;
                 const {data} = await axios.get(url);

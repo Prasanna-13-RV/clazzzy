@@ -6,12 +6,18 @@ const ContactComponent = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
-    const handleSubmit = () => {
-        axios.post(`https://clazzzy-server.herokuapp.com/contact`, {
-            fullname,
-            email,
-            message,
-        });
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        try {
+            axios.post(`${process.env.REACT_APP_API_URL}/contact`, {
+                fullname,
+                email,
+                message,
+            });
+            console.log("Hello from");
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
@@ -30,7 +36,7 @@ const ContactComponent = () => {
                         </div>
                         <div className="mt-8 text-center"></div>
                     </div>
-                    <div className="">
+                    <form method="POST" onSubmit={handleSubmit} className="">
                         <div>
                             <span className="uppercase text-sm text-gray-600 font-bold">
                                 Full Name
@@ -38,7 +44,7 @@ const ContactComponent = () => {
                             <input
                                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                                 type="text"
-                                placeHolder=""
+                                placeholder=""
                                 onChange={(e) => setFullname(e.target.value)}
                             />
                         </div>
@@ -48,7 +54,7 @@ const ContactComponent = () => {
                             </span>
                             <input
                                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
-                                type="text"
+                                type="email"
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
@@ -63,11 +69,11 @@ const ContactComponent = () => {
                             ></textarea>
                         </div>
                         <div className="mt-8">
-                            <button onClick={handleSubmit} className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
+                            <button className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
                                 Send Message
                             </button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </section>
         </>

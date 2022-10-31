@@ -13,7 +13,7 @@ const Pagination = ({
     }
 
     return (
-        <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between px-10 my-5">
+        <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between px-10 my-5 pr-24">
             <div>
                 <p className="text-sm text-gray-700">
                     Showing{" "}

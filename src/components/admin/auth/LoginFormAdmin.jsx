@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {auth,  db} from "../../firebase/firebase";
+import {auth, db} from "../../../firebase/firebase";
 import { addDoc, collection } from "firebase/firestore";
 
 import {
@@ -10,7 +10,7 @@ import {
     signInWithPopup,
 } from "firebase/auth";
 
-export const LoginFormComponent = () => {
+export const LoginFormAdmin = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -32,7 +32,6 @@ export const LoginFormComponent = () => {
                             payload: {
                                 email,
                                 cart: [],
-                                sell: false,
                             },
                         });
                     } catch (err) {
@@ -74,7 +73,6 @@ export const LoginFormComponent = () => {
                                     .accessToken,
                                 photoURL: response.user.photoURL,
                                 cart: [],
-                                sell: false,
                             },
                         });
                     } catch (err) {

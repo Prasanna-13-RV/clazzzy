@@ -54,7 +54,7 @@ export const ForgotPasswordComponent = () => {
                             <input
                                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                                 type=""
-                                placeHolder="mike@gmail.com"
+                                placeholder="mike@gmail.com"
                                 autoFocus
                                 onChange={(e) => setEmail(e.target.value)}
                             />
@@ -66,7 +66,7 @@ export const ForgotPasswordComponent = () => {
                             <input
                                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                                 type=""
-                                placeHolder="Enter your password"
+                                placeholder="Enter your password"
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
@@ -77,7 +77,7 @@ export const ForgotPasswordComponent = () => {
                             <input
                                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                                 type=""
-                                placeHolder="Enter your password"
+                                placeholder="Enter your password"
                                 onChange={async (e) => {
                                     setConfirmPassword(e.target.value);
                                 }}

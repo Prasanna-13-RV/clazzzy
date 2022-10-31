@@ -13,7 +13,7 @@ const Template = ({productid}) => {
     const products = () => {
         axios
             .get(
-                `https://clazzzy-server.herokuapp.com/singleproduct/${productid}`
+                `${process.env.REACT_APP_API_URL}/singleproduct/${productid}`
             )
             .then((response) => {
                 setCurrentProduct({...response.data, quantity: 1});

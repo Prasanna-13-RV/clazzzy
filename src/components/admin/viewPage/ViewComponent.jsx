@@ -7,7 +7,7 @@ const ViewComponent = ({productid}) => {
 
     const products = () => {
         axios
-            .get(`https://clazzzy-server.herokuapp.com/admin/viewproducts/${productid}`)
+            .get(`${process.env.REACT_APP_API_URL}/admin/viewproducts/${productid}`)
             .then((response) => {
                 setCurrentProduct(response.data);
             });
@@ -105,7 +105,7 @@ const ViewComponent = ({productid}) => {
                                                 className="mt-6 flex w-1/2 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                             >
                                                 <Link
-                                                    to={`/admin/updateproducts/${productid}`}
+                                                    to={`/sellers/updateproducts/${productid}`}
                                                 >
                                                     Update Product
                                                 </Link>
