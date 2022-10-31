@@ -22,6 +22,7 @@ const Products = () => {
             </Helmet>
             <Nav />
             {/* {JSON.stringify(user)} */}
+            
             <SwiperProducts />
             <ProductsComponent />
             <Footer />
