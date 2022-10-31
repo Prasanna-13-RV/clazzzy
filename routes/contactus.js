@@ -3,13 +3,13 @@ const Products = require("../models/Products");
 const nodemailer = require("nodemailer");
 
 router.post("/contact", (req, res) => {
-    const {name, email, message} = req.body;
+    const {fullname, email, message} = req.body;
 
     const output = `
         <p>You have a new contact request</p>
         <h3>Contact Details</h3>
         <ul>  
-            <li>Name: ${name}</li>
+            <li>Name: ${fullname}</li>
             <li>Email: ${email}</li>
             </ul>
             <h3>Message</h3>
@@ -23,7 +23,7 @@ router.post("/contact", (req, res) => {
         service: "gmail",
         auth: {
             user: "arglebargletamil@gmail.com",
-            pass: `pRASANNA13087280$#`,
+            pass: `rkzlmxvnoyxryyta`,
         },
         // tls: {
         //     rejectUnauthorized: false
@@ -39,10 +39,13 @@ router.post("/contact", (req, res) => {
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return console.log(error);
+        try {
+            // res.render("./contact");
+            res.redirect("/");
+            console.log("Email has been sent");
+        } catch (error) {
+            console.log(error);
         }
-        res.render("./contact", {msg: "Email has been sent"});
     });
 });
 

@@ -1,7 +1,8 @@
 require("dotenv").config();
 
 const express = require("express");
-const cors = require("cors");
+const cors = require("cors"); 
+
 const multer = require("multer");
 const app = express();
 
@@ -14,6 +15,7 @@ const addtocart = require("./routes/addToCart");
 const razorpay = require("./routes/razorpay");
 const recommend = require("./routes/recommend");
 const contactus = require("./routes/contactus");
+const seller = require("./routes/seller");
 
 dbConnect();
 app.use(express.json());
@@ -26,6 +28,10 @@ app.use("/", addtocart);
 app.use("/", recommend);
 app.use("/", contactus);
 app.use("/api/payment", razorpay);
+
+
+
+app.use("/seller", seller);
 
 app.get("/", (req, res) => {
     res.send("Hello World");
