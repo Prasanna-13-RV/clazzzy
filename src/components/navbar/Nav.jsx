@@ -13,8 +13,6 @@ function classNames(...classes) {
 
 export default function Nav({current}) {
     const {user} = useSelector((state) => ({...state}));
-    const [loginButton, setLoginButton] = useState(false);
-    const [userButton, setUserButton] = useState(false);
 
     const navigation = [
         {name: "Home", href: "/", current: current},
@@ -38,13 +36,6 @@ export default function Nav({current}) {
             console.log(error);
         }
     };
-
-    useEffect(() => {
-        if (user) {
-            setLoginButton(true);
-            setUserButton(true);
-        }
-    }, []);
 
     return (
         <Disclosure as="nav" className="z-50">
@@ -156,28 +147,46 @@ export default function Nav({current}) {
                                         leaveTo="transform opacity-0 scale-95"
                                     >
                                         <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                            {userButton ? (
-                                                <Menu.Item>
-                                                    {({active}) => (
-                                                        <a
-                                                            className={classNames(
-                                                                active
-                                                                    ? "bg-gray-100"
-                                                                    : "",
-                                                                "block px-4 py-2 text-sm text-gray-700"
-                                                            )}
-                                                        >
-                                                            <Link
-                                                                to={`/profile/${user.uid}`}
+                                            {user ? (
+                                                <>
+                                                    <Menu.Item>
+                                                        {({active}) => (
+                                                            <a
+                                                                className={classNames(
+                                                                    active
+                                                                        ? "bg-gray-100"
+                                                                        : "",
+                                                                    "block px-4 py-2 text-sm text-gray-700"
+                                                                )}
                                                             >
-                                                                Your Profile
-                                                            </Link>
-                                                        </a>
-                                                    )}
-                                                </Menu.Item>
-                                            ) : null}
-
-                                            {!loginButton ? (
+                                                                <Link
+                                                                    to={`/profile/${user._id}`}
+                                                                >
+                                                                    Your Profile
+                                                                </Link>
+                                                            </a>
+                                                        )}
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        {({active}) => (
+                                                            <a
+                                                                href="#"
+                                                                className={classNames(
+                                                                    active
+                                                                        ? "bg-gray-100"
+                                                                        : "",
+                                                                    "block px-4 py-2 text-sm text-gray-700"
+                                                                )}
+                                                                onClick={
+                                                                    logOutButton
+                                                                }
+                                                            >
+                                                                Sign out
+                                                            </a>
+                                                        )}
+                                                    </Menu.Item>
+                                                </>
+                                            ) : (
                                                 <>
                                                     <Menu.Item>
                                                         {({active}) => (
@@ -189,9 +198,6 @@ export default function Nav({current}) {
                                                                         : "",
                                                                     "block px-4 py-2 text-sm text-gray-700"
                                                                 )}
-                                                                // onClick={
-                                                                //     logOutButton
-                                                                // }
                                                             >
                                                                 Login
                                                             </a>
@@ -207,34 +213,12 @@ export default function Nav({current}) {
                                                                         : "",
                                                                     "block px-4 py-2 text-sm text-gray-700"
                                                                 )}
-                                                                onClick={
-                                                                    logOutButton
-                                                                }
                                                             >
                                                                 Register
                                                             </a>
                                                         )}
                                                     </Menu.Item>
                                                 </>
-                                            ) : (
-                                                <Menu.Item>
-                                                    {({active}) => (
-                                                        <a
-                                                            href="#"
-                                                            className={classNames(
-                                                                active
-                                                                    ? "bg-gray-100"
-                                                                    : "",
-                                                                "block px-4 py-2 text-sm text-gray-700"
-                                                            )}
-                                                            onClick={
-                                                                logOutButton
-                                                            }
-                                                        >
-                                                            Sign out
-                                                        </a>
-                                                    )}
-                                                </Menu.Item>
                                             )}
                                         </Menu.Items>
                                     </Transition>

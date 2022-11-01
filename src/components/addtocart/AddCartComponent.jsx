@@ -76,9 +76,7 @@ const AddCartComponent = () => {
         try {
             dispatch({
                 type: "ADDCART_PRODUCT",
-                payload: {
-                    cart: [...cartItems],
-                },
+                payload: [...cartItems],
             });
         } catch (err) {
             console.log(err);

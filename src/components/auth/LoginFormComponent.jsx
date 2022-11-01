@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {auth,  db} from "../../firebase/firebase";
-import { addDoc, collection } from "firebase/firestore";
+import {auth, db} from "../../firebase/firebase";
+import {addDoc, collection} from "firebase/firestore";
+import axios from "axios";
 
 import {
     signInWithEmailAndPassword,
@@ -27,14 +28,18 @@ export const LoginFormComponent = () => {
             await signInWithEmailAndPassword(auth, email, password).then(
                 async (response) => {
                     try {
-                        await dispatch({
-                            type: "SET_USER",
-                            payload: {
-                                email,
-                                cart: [],
-                                sell: false,
-                            },
-                        });
+                        await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+                            email,
+                        }).then(async (response) => {
+                            await dispatch({
+                                type: "SET_USER",
+                                payload: {
+                                    ...response.data,
+                                    cart: [],
+                                    sell: false,
+                                },
+                            });
+                        })
                     } catch (err) {
                         console.log(err);
                     }
@@ -54,29 +59,30 @@ export const LoginFormComponent = () => {
             await signInWithPopup(auth, googleAuthProvider).then(
                 async (response) => {
                     try {
-                        await addDoc(usersCollectionRef, {
+                        // await dispatch({
+                        //     type: "SET_USER",
+                        //     payload: {
+                        //         email: response.user.auth.currentUser.email,
+                        //         uid: response.user.auth.currentUser.uid,
+                        //         token: response.user.auth.currentUser
+                        //             .accessToken,
+                        //         photoURL: response.user.photoURL,
+                        //         cart: [],
+                        //         sell: false,
+                        //     },
+                        // });
+                        await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
                             email: response.user.auth.currentUser.email,
-                            // password,
-                            first_name:
-                                response.user.auth.currentUser.displayName,
-                            second_name: null,
-                            uid: response.user.auth.currentUser.uid,
-                            token: response.user.auth.currentUser.accessToken,
-                            photoURL: response.user.photoURL,
-                            type: "googleoauth",
-                        });
-                        await dispatch({
-                            type: "SET_USER",
-                            payload: {
-                                email: response.user.auth.currentUser.email,
-                                uid: response.user.auth.currentUser.uid,
-                                token: response.user.auth.currentUser
-                                    .accessToken,
-                                photoURL: response.user.photoURL,
-                                cart: [],
-                                sell: false,
-                            },
-                        });
+                        }).then(async (response) => {
+                            await dispatch({
+                                type: "SET_USER",
+                                payload: {
+                                    ...response.data[0],
+                                    cart: [],
+                                    sell: false,
+                                },
+                            });
+                        })
                     } catch (err) {
                         console.log(err);
                     }

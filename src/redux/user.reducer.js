@@ -9,7 +9,7 @@
 const userReducer = (state = null, action) => {
     switch (action.type) {
         case "ADDCART_PRODUCT":
-            return action.payload;
+            return {...state, cart: action.payload};
         case "ADDMORE_PRODUCT":
             return action.payload;
         case "SET_USER":

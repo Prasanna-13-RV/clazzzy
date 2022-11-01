@@ -6,15 +6,12 @@ import Recommand from "./Recommand";
 
 const Template = ({productid}) => {
     const [currentProduct, setCurrentProduct] = useState([]);
-    // const [cart, setCart] = useState([]);
 
     const [addtocartAddition, setaddtocartAddition] = useState(0);
 
     const products = () => {
         axios
-            .get(
-                `${process.env.REACT_APP_API_URL}/singleproduct/${productid}`
-            )
+            .get(`${process.env.REACT_APP_API_URL}/singleproduct/${productid}`)
             .then((response) => {
                 setCurrentProduct({...response.data, quantity: 1});
             });
@@ -28,57 +25,47 @@ const Template = ({productid}) => {
     const {user} = useSelector((state) => ({...state}));
 
     const handleAddToCart = async (currentProduct) => {
-        // setCart([...cart, currentProduct]);
         const filterArray = () =>
             user.cart.filter((item) => item._id === currentProduct._id);
         const remainingItems = () =>
             user.cart.filter((item) => item._id !== currentProduct._id);
 
-        // filterArray().length ? (...currentProduct), quantity : filterArray()[0].quantity + 1 : (...currentProduct) ,
         const product = filterArray().length
             ? {...filterArray()[0], quantity: filterArray()[0].quantity + 1}
             : {...currentProduct};
         try {
             await dispatch({
                 type: "ADDCART_PRODUCT",
-                payload: {
-                    cart: [
-                        ...remainingItems(),
-                        {
-                            ...product,
-                        },
-                    ],
-                },
+                payload: [
+                    ...remainingItems(),
+                    {
+                        ...product,
+                    },
+                ],
             });
-            setaddtocartAddition(filterArray()[0].quantity + 1);
         } catch (err) {
             console.log(err);
         }
     };
     const handleSubtract = async (currentProduct) => {
-        // setCart([...cart, currentProduct]);
         const filterArray = () =>
             user.cart.filter((item) => item._id === currentProduct._id);
         const remainingItems = () =>
             user.cart.filter((item) => item._id !== currentProduct._id);
 
-        // filterArray().length ? (...currentProduct), quantity : filterArray()[0].quantity + 1 : (...currentProduct) ,
         const product = filterArray().length
             ? {...filterArray()[0], quantity: filterArray()[0].quantity - 1}
             : {...currentProduct};
         try {
             await dispatch({
                 type: "ADDCART_PRODUCT",
-                payload: {
-                    cart: [
-                        ...remainingItems(),
-                        {
-                            ...product,
-                        },
-                    ],
-                },
+                payload: [
+                    ...remainingItems(),
+                    {
+                        ...product,
+                    },
+                ],
             });
-            setaddtocartAddition(filterArray()[0].quantity + 1);
         } catch (err) {
             console.log(err);
         }
@@ -189,12 +176,20 @@ const Template = ({productid}) => {
                                                     Icon description
                                                 </span>
                                             </button>
-                                            <button
-                                                type="submit"
-                                                className="mt-6 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                                            >
-                                                {addtocartAddition}
-                                            </button>
+                                            <h1 className="mt-6 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                                {JSON.stringify(
+                                                    user.cart.find(
+                                                        (c) =>
+                                                            c._id == productid
+                                                    )
+                                                        ? user.cart.find(
+                                                              (c) =>
+                                                                  c._id ==
+                                                                  productid
+                                                          ).quantity
+                                                        : 0
+                                                )}
+                                            </h1>
                                             <button
                                                 type="button"
                                                 class="h-[3rem] w-[3rem] flex justify-center items-center text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800"

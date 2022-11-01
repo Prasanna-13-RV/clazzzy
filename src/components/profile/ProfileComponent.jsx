@@ -1,17 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {Navigate} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 import {auth, db} from "../../firebase/firebase";
 import {addDoc, collection, getDocs, updateDoc} from "firebase/firestore";
+import axios from "axios";
 
-const ProfileComponent = () => {
-    const [first_name, setFirst_name] = useState("");
-    const [second_name, setSecond_name] = useState("");
-    const [dob, setDob] = useState();
-    const [email, setEmail] = useState("");
-    const [gender, setGender] = useState("");
-    const [phone, setPhone] = useState();
-    const [error, setError] = useState("");
+const ProfileComponent = ({profileid}) => {
+    const [profile, setProfile] = useState([]);
 
     const dispatch = useDispatch();
     const {user} = useSelector((state) => ({...state}));
@@ -20,13 +15,19 @@ const ProfileComponent = () => {
         return <Navigate to="/login" />;
     }
 
-    const allusers = async () => {
-        const usersCollectionRef = collection(db, "users");
-        const data = await getDocs(usersCollectionRef);
+    const updateProfile = async () => {
+        await axios
+            .get(`${process.env.REACT_APP_API_URL}/profile/${profileid}`)
+            .then((response) => {
+                setProfile(response.data);
+            });
     };
+
+    updateProfile();
 
     return (
         <>
+            {JSON.stringify(profile)}
             <div className="md:flex no-wrap flex flex-col justify-center items-center shadow-lg bg-black">
                 <div className="w-full md:w-9/12 mx-2 h-64 shadow-lg ">
                     <div className="bg-white p-3 shadow-lg rounded-sm shadow-indigo-500/40 mt-20 px-10">
@@ -56,12 +57,12 @@ const ProfileComponent = () => {
                                         First Name
                                     </div>
                                     <div className="px-4 py-2">
-                                        {!user.first_name ? (
+                                        {!profile.firstName ? (
                                             <h1 className="text-slate-400">
                                                 Update your first name
                                             </h1>
                                         ) : (
-                                            <h1>{user.first_name}</h1>
+                                            <h1>{profile.firstName}</h1>
                                         )}
                                     </div>
                                 </div>
@@ -70,12 +71,12 @@ const ProfileComponent = () => {
                                         Last Name
                                     </div>
                                     <div className="px-4 py-2">
-                                        {!user.second_name ? (
+                                        {!profile.secondName ? (
                                             <h1 className="text-slate-400">
                                                 Update your second name
                                             </h1>
                                         ) : (
-                                            <h1>{user.second_name}</h1>
+                                            <h1>{profile.secondName}</h1>
                                         )}
                                     </div>
                                 </div>
@@ -84,12 +85,12 @@ const ProfileComponent = () => {
                                         Gender
                                     </div>
                                     <div className="px-4 py-2">
-                                        {!user.gender ? (
+                                        {!profile.gender ? (
                                             <h1 className="text-slate-400">
                                                 Update your gender
                                             </h1>
                                         ) : (
-                                            <h1>{user.gender}</h1>
+                                            <h1>{profile.gender}</h1>
                                         )}
                                     </div>
                                     {/* <div className="px-4 py-2"></div> */}
@@ -99,12 +100,12 @@ const ProfileComponent = () => {
                                         Contact No.
                                     </div>
                                     <div className="px-4 py-2">
-                                        {!user.phone ? (
+                                        {!profile.phone ? (
                                             <h1 className="text-slate-400">
                                                 Update your number
                                             </h1>
                                         ) : (
-                                            <h1>{user.phone}</h1>
+                                            <h1>{profile.phone}</h1>
                                         )}
                                     </div>
                                 </div>
@@ -113,12 +114,12 @@ const ProfileComponent = () => {
                                         Email
                                     </div>
                                     <div className="px-4 py-2">
-                                        {!user.email ? (
+                                        {!profile.email ? (
                                             <h1 className="text-slate-400">
                                                 Update your email
                                             </h1>
                                         ) : (
-                                            <h1>{user.email}</h1>
+                                            <h1>{profile.email}</h1>
                                         )}
                                     </div>
                                 </div>
@@ -127,25 +128,26 @@ const ProfileComponent = () => {
                                         Birthday
                                     </div>
                                     <div className="px-4 py-2">
-                                        {!user.dob ? (
+                                        {!profile.dob ? (
                                             <h1 className="text-slate-400">
                                                 Update your date of birth
                                             </h1>
                                         ) : (
-                                            <h1>{user.dob}</h1>
+                                            <h1>{profile.dob}</h1>
                                         )}
                                     </div>
                                 </div>
                             </div>
                             <div className="w-full flex flex-col justify-center items-center">
-                                <a
-                                    href={`/updateprofile/${user.uid}`}
+                                <Link
+                                    to={`/updateprofile/${profile._id}`}
+                                    profileid={profile._id}
                                     className="bg-[#FFB4A2] text-[#3E3B42] px-10 py-2 self-center rounded tracking-wide my-5
                                 font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-[#FFC1AA]
                                 shadow-lg"
                                 >
                                     Update Profile
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

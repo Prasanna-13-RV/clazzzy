@@ -9,6 +9,7 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {auth, db} from "../../firebase/firebase";
 import {addDoc, collection} from "firebase/firestore";
+import axios from "axios";
 
 const RegisterFormComponent = () => {
     const [fullName, setFullName] = useState("");
@@ -21,6 +22,8 @@ const RegisterFormComponent = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const {user} = useSelector((state) => ({...state}));
 
     const usersCollectionRef = collection(db, "users");
 
@@ -35,19 +38,6 @@ const RegisterFormComponent = () => {
                     password
                 ).then(async (response) => {
                     try {
-                        await addDoc(usersCollectionRef, {
-                            fullName,
-                            first_name: null,
-                            second_name: null,
-                            email,
-                            // password,
-                            uid: response.user.auth.currentUser.uid,
-                            token: response.user.auth.currentUser.accessToken,
-                            type: "email_password",
-                            dob: null,
-                            phone: null,
-                            gender: null,
-                        });
                         await dispatch({
                             type: "SET_USER",
                             payload: {
@@ -63,6 +53,14 @@ const RegisterFormComponent = () => {
                                 sell: false,
                             },
                         });
+                        await axios.post(
+                            `${process.env.REACT_APP_API_URL}/register`,
+                            {
+                                email,
+                                fullName,
+                                type: "email_password",
+                            }
+                        );
                     } catch (err) {
                         console.log(err);
                     }
@@ -85,17 +83,6 @@ const RegisterFormComponent = () => {
             await signInWithPopup(auth, googleAuthProvider).then(
                 async (response) => {
                     try {
-                        await addDoc(usersCollectionRef, {
-                            email: response.user.auth.currentUser.email,
-                            // password,
-                            first_name:
-                                response.user.auth.currentUser.displayName,
-                            second_name: null,
-                            uid: response.user.auth.currentUser.uid,
-                            token: response.user.auth.currentUser.accessToken,
-                            photoURL: response.user.photoURL,
-                            type: "googleoauth",
-                        });
                         await dispatch({
                             type: "SET_USER",
                             payload: {
@@ -108,6 +95,15 @@ const RegisterFormComponent = () => {
                                 sell: false,
                             },
                         });
+                        await axios.post(
+                            `${process.env.REACT_APP_API_URL}/register`,
+                            {
+                                email: response.user.auth.currentUser.email,
+                                fullName:
+                                    response.user.auth.currentUser.displayName,
+                                type: "googleoauth",
+                            }
+                        );
                     } catch (err) {
                         console.log(err);
                     }

@@ -3,10 +3,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {Navigate} from "react-router-dom";
 import {auth, db} from "../../firebase/firebase";
 import {addDoc, collection, getDocs, updateDoc} from "firebase/firestore";
+import axios from "axios";
 
-const ProfileUpdateComponent = () => {
-    const [first_name, setFirst_name] = useState("");
-    const [second_name, setSecond_name] = useState("");
+const ProfileUpdateComponent = ({}) => {
+    const [profile, setProfile] = useState([]);
+    const [firstName, setFirstName] = useState("");
+    const [secondName, setSecondName] = useState("");
     const [dob, setDob] = useState();
     const [email, setEmail] = useState("");
     const [gender, setGender] = useState("");
@@ -22,33 +24,34 @@ const ProfileUpdateComponent = () => {
 
     const usersCollectionRef = collection(db, "users");
 
-    let allUser = getDocs(usersCollectionRef);
+    const updateProfile = async () => {
+        await axios
+            .get(`${process.env.REACT_APP_API_URL}/profile/${user._id}`)
+            .then((response) => {
+                setProfile(response.data);
+                setFirstName(response.data.firstName);
+            });
+    };
 
+    // useEffect(() => {
+    updateProfile();
+    //   }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
         try {
-            await updateDoc(usersCollectionRef, {
-                first_name: first_name,
-                second_name: second_name,
-                email,
-                type: "email_password",
-                dob: dob,
-                phone: phone,
-                gender: gender,
-            });
-            await dispatch({
-                type: "UPDATE_USER",
-                payload: {
-                    first_name,
-                    second_name,
+            await axios.put(
+                `${process.env.REACT_APP_API_URL}/updateprofile/${user._id}`,
+                {
+                    firstName,
+                    secondName,
                     dob,
                     email,
                     gender,
                     phone,
-                },
-            });
+                }
+            );
         } catch (error) {
             setError(error);
             console.log(error);
@@ -92,9 +95,9 @@ const ProfileUpdateComponent = () => {
                                             placeholder="Tony"
                                             autoFocus
                                             onChange={(e) =>
-                                                setFirst_name(e.target.value)
+                                                setFirstName(e.target.value)
                                             }
-                                            value={user.fullName}
+                                            value={firstName}
                                         />
                                     </div>
                                 </div>
@@ -108,9 +111,9 @@ const ProfileUpdateComponent = () => {
                                             type=""
                                             placeholder="Stark"
                                             autoFocus
-                                            value={user.second_name}
+                                            value={profile.secondName}
                                             onChange={(e) =>
-                                                setSecond_name(e.target.value)
+                                                setSecondName(e.target.value)
                                             }
                                         />
                                     </div>
@@ -126,7 +129,7 @@ const ProfileUpdateComponent = () => {
                                                 type="radio"
                                                 name="default-radio"
                                                 className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 dar"
-                                                value={user.gender}
+                                                value={profile.gender}
                                                 onChange={(e) =>
                                                     setGender("female")
                                                 }
@@ -169,7 +172,7 @@ const ProfileUpdateComponent = () => {
                                             type=""
                                             placeholder="1234567890"
                                             autoFocus
-                                            value={user.phone}
+                                            value={profile.phone}
                                             onChange={(e) =>
                                                 setPhone(e.target.value)
                                             }
@@ -189,7 +192,7 @@ const ProfileUpdateComponent = () => {
                                             onChange={(e) =>
                                                 setEmail(e.target.value)
                                             }
-                                            value={user.email}
+                                            value={profile.email}
                                         />
                                     </div>
                                 </div>
@@ -203,7 +206,7 @@ const ProfileUpdateComponent = () => {
                                                 type="date"
                                                 className="w-full text-sm py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                                                 id=""
-                                                value={user.dob}
+                                                value={profile.dob}
                                                 onChange={(e) =>
                                                     setDob(e.target.value)
                                                 }
