@@ -8,14 +8,18 @@ const app = express();
 
 const dbConnect = require("./dbConnect");
 
-const productsRoutes = require("./routes/products");
-const crudRoutes = require("./routes/crud");
-const singleproduct = require("./routes/singleproduct");
-const addtocart = require("./routes/addToCart");
-const razorpay = require("./routes/razorpay");
-const recommend = require("./routes/recommend");
-const contactus = require("./routes/contactus");
-const seller = require("./routes/seller");
+// products
+const productsRoutes = require("./routes/products/products");
+const singleproduct = require("./routes/products/singleproduct");
+const addtocart = require("./routes/products/addToCart");
+const razorpay = require("./routes/products/razorpay");
+// seller
+const crudRoutes = require("./routes/seller/crud");
+const seller = require("./routes/seller/seller");
+// home
+const recommend = require("./routes/home/recommend");
+const contactus = require("./routes/home/contactus");
+const userRoute = require("./routes/home/user");
 
 dbConnect();
 app.use(express.json());
@@ -36,6 +40,7 @@ app.use("/", singleproduct);
 app.use("/", addtocart);
 app.use("/", recommend);
 app.use("/", contactus);
+app.use("/", userRoute);
 app.use("/api/payment", razorpay);
 
 app.use("/seller", seller);

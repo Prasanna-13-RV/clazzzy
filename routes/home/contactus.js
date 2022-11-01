@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Products = require("../models/Products");
+const Products = require("../../models/Products");
 const nodemailer = require("nodemailer");
 
 router.post("/contact", (req, res) => {

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Products = require("../models/Products");
+const Products = require("../../models/Products");
 
 router.get("/singleproduct/:id", async (req, res) => {
     const id = req.params.id;

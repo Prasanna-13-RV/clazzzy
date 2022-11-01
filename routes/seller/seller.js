@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const Products = require("../models/Products");
-const SellerUser = require("../models/SellerUser");
+const Products = require("../../models/Products");
+const SellerUser = require("../../models/SellerUser");
 const nodemailer = require("nodemailer");
 
 router.post("/login", async (req, res) => {

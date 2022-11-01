@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Products = require("../models/Products");
+const Products = require("../../models/Products");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");

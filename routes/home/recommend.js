@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const {count} = require("../models/Products");
-const Products = require("../models/Products");
+const Products = require("../../models/Products");
 
 router.get("/recommend", async (req, res) => {
     try {
