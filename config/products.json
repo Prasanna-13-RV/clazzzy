@@ -1,64 +1,81 @@
 [
     {
         "name": "Shirt 7",
-        "img" : "https://img.freepik.com/free-photo/girl-holds-fashion-shopping-bag-beauty_1150-13673.jpg?w=2000",
-        "description" : "lorem Text",
-        "rating" : "5",
-        "categories" : ["Shirts", "Clothing"],
+        "img": "https://img.freepik.com/free-photo/girl-holds-fashion-shopping-bag-beauty_1150-13673.jpg?w=2000",
+        "description": "lorem Text",
+        "rating": "5",
+        "categories": [
+            "Shirts",
+            "Clothing"
+        ],
         "pricing": "40",
         "count": "5"
     },
     {
         "name": "Shirt 10",
-        "img" : "https://img.freepik.com/free-photo/two-beautiful-women-shopping-town_1303-16426.jpg?w=2000",
-        "description" : "lorem Text",
-        "rating" : "5",
-        "categories" : ["Shirts", "Clothing"],
+        "img": "https://img.freepik.com/free-photo/two-beautiful-women-shopping-town_1303-16426.jpg?w=2000",
+        "description": "lorem Text",
+        "rating": "5",
+        "categories": [
+            "Shirts",
+            "Clothing"
+        ],
         "pricing": "400",
         "count": "3"
     },
     {
         "name": "Shirt fgh",
-        "img" : "https://cdn.create.vista.com/api/media/small/172204684/stock-photo-young-woman-with-shopping-bags",
-        "description" : "lorem Text",
-        "rating" : "2",
-        "categories" : ["Shirts"],
+        "img": "https://cdn.create.vista.com/api/media/small/172204684/stock-photo-young-woman-with-shopping-bags",
+        "description": "lorem Text",
+        "rating": "2",
+        "categories": [
+            "Shirts"
+        ],
         "pricing": "100",
         "count": "2"
     },
     {
         "name": "Shirt 8",
-        "img" : "https://img.freepik.com/free-photo/two-beautiful-women-shopping-town_1303-16426.jpg?w=2000",
-        "description" : "lorem Text",
-        "rating" : "2",
-        "categories" : ["Shirts"],
+        "img": "https://img.freepik.com/free-photo/two-beautiful-women-shopping-town_1303-16426.jpg?w=2000",
+        "description": "lorem Text",
+        "rating": "2",
+        "categories": [
+            "Shirts"
+        ],
         "pricing": "40",
         "count": "5"
     },
     {
         "name": "Vegetables 1",
-        "img" : "https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg",
-        "description" : "lorem Text",
-        "rating" : "5",
-        "categories" : ["Vegetables"],
+        "img": "https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg",
+        "description": "lorem Text",
+        "rating": "5",
+        "categories": [
+            "Vegetables"
+        ],
         "pricing": "100",
         "count": "0"
     },
     {
         "name": "Fruits 1",
-        "img" : "https://www.unlockfood.ca/EatRightOntario/media/Website-images-resized/How-to-store-fruit-to-keep-it-fresh-resized.jpg",
-        "description" : "lorem Text",
-        "rating" : "4",
-        "categories" : ["Fruits"],
+        "img": "https://www.unlockfood.ca/EatRightOntario/media/Website-images-resized/How-to-store-fruit-to-keep-it-fresh-resized.jpg",
+        "description": "lorem Text",
+        "rating": "4",
+        "categories": [
+            "Fruits"
+        ],
         "pricing": "40",
         "count": "8"
     },
     {
         "name": "V & F",
-        "img" : "https://domf5oio6qrcr.cloudfront.net/medialibrary/11499/3b360279-8b43-40f3-9b11-604749128187.jpg",
-        "description" : "lorem Text",
-        "rating" : "4",
-        "categories" : ["Fruits", "Vegetables"],
+        "img": "https://domf5oio6qrcr.cloudfront.net/medialibrary/11499/3b360279-8b43-40f3-9b11-604749128187.jpg",
+        "description": "lorem Text",
+        "rating": "4",
+        "categories": [
+            "Fruits",
+            "Vegetables"
+        ],
         "pricing": "40",
         "count": "10"
     }

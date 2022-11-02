@@ -23,24 +23,20 @@ router.post(
     async (req, res) => {
         const name = req.body.name;
         const price = req.body.price;
-        // const image = req.body.image;
+        const image = req.body.image;
         const category = req.body.category;
         const description = req.body.description;
         const rating = req.body.rating;
 
-        // console.log(req.file);
 
         const product = new Products({
             name: name,
             pricing: price,
-            img: req.file.originalname,
-            // {
-            //     data: fs.readFileSync("Images/", req.body.image),
-            //     // contentType: "image/png",
-            // },
+            img: image,
             rating: rating,
-            categories: [...category],
+            categories: category.split(","),
             description: description,
+            count: 0,
         });
 
         try {
@@ -51,8 +47,6 @@ router.post(
         }
     }
 );
-
-
 
 router.get("/admin/readproducts", (req, res) => {
     const readProducts = Products.find({}, (err, result) => {
@@ -69,7 +63,6 @@ router.get("/admin/updateproducts/:id", async (req, res) => {
     try {
         await Products.findById(id, (err, response) => {
             res.json(response);
-            // console.log(response);
         });
     } catch (err) {
         console.log(err);

@@ -44,6 +44,7 @@ router.get("/product", async (req, res) => {
             name: {$regex: search, $options: "i"},
         });
 
+
         const response = {
             error: false,
             total,
@@ -72,11 +73,14 @@ router.get("/product", async (req, res) => {
 //     .then((docs) => console.log(docs))
 //     .catch((err) => console.log(err));
 
-// const hello = async () => {
-//     const print = Products.find({categories: [...categories]});
-//     console.log(print);
+// const deleteManyProducts = async () => {
+//     try {
+//         const docs = await Products.deleteMany({});
+//         console.log(docs);
+//     } catch (err) {
+//         console.log(err);
+//     }
 // };
-
-// hello();
+// deleteManyProducts();
 
 module.exports = router;
