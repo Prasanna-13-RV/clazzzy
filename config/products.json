@@ -1,82 +1,363 @@
 [
     {
-        "name": "Shirt 7",
-        "img": "https://img.freepik.com/free-photo/girl-holds-fashion-shopping-bag-beauty_1150-13673.jpg?w=2000",
-        "description": "lorem Text",
-        "rating": "5",
+        "name": "On Cloud Nine Pillow",
+        "pricing": 24.99,
+        "img": "https://www.domain.com/images/heh-9133_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
         "categories": [
-            "Shirts",
-            "Clothing"
+            "others"
         ],
-        "pricing": "40",
-        "count": "5"
+        "rating": 4.2,
+        "count": 4
     },
     {
-        "name": "Shirt 10",
-        "img": "https://img.freepik.com/free-photo/two-beautiful-women-shopping-town_1303-16426.jpg?w=2000",
-        "description": "lorem Text",
-        "rating": "5",
+        "name": "Simply Sweet Blouse",
+        "pricing": 42,
+        "img": "https://www.domain.com/images/heh-2245_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
         "categories": [
-            "Shirts",
-            "Clothing"
+            "clothing"
         ],
-        "pricing": "400",
-        "count": "3"
+        "rating": 4.5,
+        "count": 1
     },
     {
-        "name": "Shirt fgh",
-        "img": "https://cdn.create.vista.com/api/media/small/172204684/stock-photo-young-woman-with-shopping-bags",
-        "description": "lorem Text",
-        "rating": "2",
+        "name": "Uptown Girl Blouse",
+        "pricing": 58,
+        "img": "https://www.domain.com/images/wks-6016_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
         "categories": [
-            "Shirts"
+            "clothing"
         ],
-        "pricing": "100",
-        "count": "2"
+        "rating": 4.5,
+        "count": 5
     },
     {
-        "name": "Shirt 8",
-        "img": "https://img.freepik.com/free-photo/two-beautiful-women-shopping-town_1303-16426.jpg?w=2000",
-        "description": "lorem Text",
-        "rating": "2",
+        "name": "Knock Your Socks Off Lace-Up Heels",
+        "pricing": 38,
+        "img": "https://www.domain.com/images/dko-prof_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
         "categories": [
-            "Shirts"
+            "clothing"
         ],
-        "pricing": "40",
-        "count": "5"
+        "rating": 4.9,
+        "count": 10
     },
     {
-        "name": "Vegetables 1",
-        "img": "https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg",
-        "description": "lorem Text",
-        "rating": "5",
+        "name": "My Cup of Tea Sweater",
+        "pricing": 68,
+        "img": "https://www.domain.com/images/heh-2172_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
         "categories": [
-            "Vegetables"
+            "clothing",
+            "shirts"
         ],
-        "pricing": "100",
-        "count": "0"
+        "rating": 4.6,
+        "count": 15
     },
     {
-        "name": "Fruits 1",
-        "img": "https://www.unlockfood.ca/EatRightOntario/media/Website-images-resized/How-to-store-fruit-to-keep-it-fresh-resized.jpg",
-        "description": "lorem Text",
-        "rating": "4",
+        "name": "Walk On Out Slip On Sneakers",
+        "pricing": 34.99,
+        "img": "https://www.domain.com/images/heh-2211_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
         "categories": [
-            "Fruits"
+            "clothing"
         ],
-        "pricing": "40",
-        "count": "8"
+        "rating": "3.9",
+        "count": 20
     },
     {
-        "name": "V & F",
-        "img": "https://domf5oio6qrcr.cloudfront.net/medialibrary/11499/3b360279-8b43-40f3-9b11-604749128187.jpg",
-        "description": "lorem Text",
-        "rating": "4",
+        "name": "Warm Hearts Sweater",
+        "pricing": 54.49,
+        "img": "https://www.domain.com/images/dko-camel_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
         "categories": [
-            "Fruits",
-            "Vegetables"
+            "clothing",
+            "shirts"
         ],
-        "pricing": "40",
-        "count": "10"
+        "rating": 5,
+        "count": 19
+    },
+    {
+        "name": "Silver Lining Dress",
+        "pricing": 62,
+        "img": "https://www.domain.com/images/wks-5026_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "clothing",
+            "shirts"
+        ],
+        "rating": 5,
+        "count": 4
+    },
+    {
+        "name": "Follow The Beat Sneakers",
+        "pricing": 32,
+        "img": "https://www.domain.com/images/pch-8738_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "clothing"
+        ],
+        "rating": 4.5,
+        "count": 15
+    },
+    {
+        "name": "Cup of Joe Pillow",
+        "pricing": 36,
+        "img": "https://www.domain.com/images/pch-8475_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "others"
+        ],
+        "rating": 4,
+        "count": 23
+    },
+    {
+        "name": "Burst Your Bubble Denim Jacket",
+        "pricing": 84,
+        "img": "https://www.domain.com/images/bco-sk101_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "clothing",
+            "shirts"
+        ],
+        "rating": 5,
+        "count": 13
+    },
+    {
+        "name": "Walk It Out Heels",
+        "pricing": 32,
+        "img": "https://www.domain.com/images/heh-2254_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "clothing"
+        ],
+        "rating": 4.7,
+        "count": 4
+    },
+    {
+        "name": "Word To The Wise Journal",
+        "pricing": 14.95,
+        "img": "https://www.domain.com/images/bco-2208_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "others"
+        ],
+        "rating": 4,
+        "count": 8
+    },
+    {
+        "name": "Basic Beauty Off-The-Shoulder Dress",
+        "pricing": 52,
+        "img": "https://www.domain.com/images/koi-721_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "clothing",
+            "shirts"
+        ],
+        "rating": 3.2,
+        "count": 14
+    },
+    {
+        "name": "Sunset Boulevard Pants",
+        "pricing": 44,
+        "img": "https://www.domain.com/images/vbh-v5102_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "clothing",
+            "shirts"
+        ],
+        "rating": 3.2,
+        "count": 22
+    },
+    {
+        "name": "Across The Pond Boots",
+        "pricing": 74.49,
+        "img": "https://www.domain.com/images/ske-15460_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "clothing",
+            "others"
+        ],
+        "rating": 5,
+        "count": 25
+    },
+    {
+        "name": "Once Upon A Time Lace Dress",
+        "pricing": 50,
+        "img": "https://www.domain.com/images/pch-8705_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "clothing",
+            "shirts"
+        ],
+        "rating": 5,
+        "count": 20
+    },
+    {
+        "name": "Lovey Dovey Maxi Dress",
+        "pricing": 68,
+        "img": "https://www.domain.com/images/pgf-ess_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "clothing",
+            "shirts"
+        ],
+        "rating": "4.8",
+        "count": 17
+    },
+    {
+        "name": "Shot in the Dark Pillow",
+        "pricing": 40,
+        "img": "https://www.domain.com/images/heh-2223_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "others"
+        ],
+        "rating": 4,
+        "count": 16
+    },
+    {
+        "name": "Diamonds Are Forever Pillow",
+        "pricing": 36,
+        "img": "https://www.domain.com/images/pgf-rik_600x600.png",
+        "description": "Sociosqu facilisis duis ...",
+        "categories": [
+            "others"
+        ],
+        "rating": 5,
+        "count": 10
+    },
+    {
+        "name": "Apple",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/265px-Red_Apple.jpg",
+        "pricing": 35,
+        "description": "This is a Apple",
+        "categories": [
+            "fruits"
+        ],
+        "rating": 5,
+        "count": 13
+    },
+    {
+        "name": "Banana",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Bananas_white_background_DS.jpg/320px-Bananas_white_background_DS.jpg",
+        "pricing": 12,
+        "description": "This is a Banana",
+        "categories": [
+            "fruits"
+        ],
+        "rating": 5,
+        "count": 12
+    },
+    {
+        "name": "Grapes",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Table_grapes_on_white.jpg/320px-Table_grapes_on_white.jpg",
+        "pricing": 45,
+        "description": "This is a Grapes",
+        "categories": [
+            "fruits"
+        ],
+        "rating": 5,
+        "count": 10
+    },
+    {
+        "name": "Pineapple",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/286px-Pineapple_and_cross_section.jpg",
+        "pricing": 200,
+        "description": "This is a Pineapple",
+        "categories": [
+            "fruits"
+        ],
+        "rating": 5,
+        "count": 20
+    },
+    {
+        "name": "Cabbage",
+        "description": "This is a Cabbage",
+        "img": "https://www.freepngimg.com/thumb/categories/2970.png",
+        "categories": [
+            "vegetables"
+        ],
+        "pricing": 30,
+        "rating": 3,
+        "count": 19
+    },
+    {
+        "name": "Capsicum",
+        "description": "This is a Capsicum",
+        "img": "https://www.nicepng.com/png/detail/52-525615_green-bell-pepper-png-green-capsicum-png.png",
+        "categories": [
+            "vegetables"
+        ],
+        "pricing": 5,
+        "rating": 2.4,
+        "count": 10
+    },
+    {
+        "name": "Garlic",
+        "description": "This is a Garlic",
+        "img": "https://www.freepngimg.com/thumb/garlic/2-2-garlic-transparent-thumb.png",
+        "categories": [
+            "vegetables"
+        ],
+        "pricing": 20,
+        "rating": 4,
+        "count": 24
+    },
+    {
+        "name": "Beetroot",
+        "description": "This is a Beetroot",
+        "img": "https://pngimg.com/uploads/beet/beet_PNG28.png",
+        "categories": [
+            "vegetables"
+        ],
+        "pricing": 20,
+        "rating": 2,
+        "count": 19
+    },
+    {
+        "name": "Tomatoes",
+        "description": "This is a Tomatoes",
+        "img": "https://www.freepngimg.com/thumb/categories/2985.png",
+        "categories": [
+            "vegetables"
+        ],
+        "pricing": 5,
+        "rating": 5,
+        "count": 22
+    },
+    {
+        "name": "Carrots",
+        "description": "This is a Carrot",
+        "img": "https://www.freepngimg.com/thumb/categories/2971.png",
+        "categories": [
+            "vegetables"
+        ],
+        "pricing": 60,
+        "rating": 2,
+        "count": 21
+    },
+    {
+        "name": "Onions",
+        "description": "This is a Onion",
+        "img": "https://www.freepngimg.com/thumb/onion/10-red-onion-png-image-thumb.png",
+        "categories": [
+            "vegetables"
+        ],
+        "pricing": 120,
+        "rating": 2,
+        "count": 16
+    },
+    {
+        "name": "Potatoes",
+        "description": "This is a Potatoes",
+        "img": "https://www.freepngimg.com/thumb/potato/7-potato-png-images-pictures-download-thumb.png",
+        "categories": [
+            "vegetables"
+        ],
+        "pricing": 80,
+        "rating": 3.3,
+        "count": 13
     }
 ]

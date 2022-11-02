@@ -14,7 +14,7 @@ router.get("/product", async (req, res) => {
             "Clothing",
             "Fruits",
             "Vegetables",
-            "Screws",
+            "Others",
             "Shirts",
         ];
 
