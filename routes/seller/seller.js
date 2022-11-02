@@ -23,12 +23,8 @@ router.post("/login", async (req, res) => {
     }
 });
 
-router.post("/:id", (req, res) => {
-    const id = req.params.id;
-
-    const {username, password, email} = req.body;
-
-    console.log(req.body, id);
+router.post("/:id", async (req, res) => {
+    const {id, username, password, email} = req.body;
 
     const output = `
         <p>You have a new Message</p>
@@ -36,20 +32,15 @@ router.post("/:id", (req, res) => {
             <p>Your new username is ${username}</p>
             <p>And your password is ${password}</p>
             <p>for the seller account in CLAZZZY</p>
+            <a href="http://localhost:3000/sellers/login">Click here to login to your seller account</a>
             `;
 
     let transporter = nodemailer.createTransport({
-        // host: '',
-        // port: 587,
-        // secure: false,
         service: "gmail",
         auth: {
             user: "arglebargletamil@gmail.com",
             pass: `rkzlmxvnoyxryyta`,
         },
-        // tls: {
-        //     rejectUnauthorized: false
-        // }
     });
 
     let mailOptions = {
@@ -60,10 +51,14 @@ router.post("/:id", (req, res) => {
         html: output,
     };
 
-    transporter.sendMail(mailOptions, async (error, info) => {
-        try {
-            const iduser = await SellerUser.find({userid: id});
-            if (!iduser) {
+    try {
+        const iduser = await SellerUser.find({userid: id});
+        console.log(iduser);
+        if (iduser.length > 0) {
+            console.log("Email already sent to your registered mail ID");
+            res.json("Email already sent to your registered mail ID");
+        } else {
+            transporter.sendMail(mailOptions, async (error, info) => {
                 const users = new SellerUser({
                     userid: id,
                     username: username,
@@ -77,14 +72,12 @@ router.post("/:id", (req, res) => {
                         res.status(200).json(response);
                     }
                 });
-                console.log("Email has been sent");
-            } else {
-                console.log("User Already Exist");
-            }
-        } catch (error) {
-            console.log(error);
+                res.json("Email has been sent");
+            });
         }
-    });
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 module.exports = router;

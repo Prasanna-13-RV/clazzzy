@@ -4,20 +4,26 @@ const Users = require("../../models/Users");
 router.post("/register", async (req, res) => {
     const {fullName, email, type} = req.body;
 
-    const user = new Users({
-        firstName: fullName,
-        secondName: "Enter your Second Name",
-        img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80",
-        email: email,
-        dob: "Enter your Date of Birth",
-        gender: "Enter your Gender",
-        phone: 1234567890,
-        typeOfRegister: type,
-    });
-
     try {
-        await user.save();
-        res.send("User Added");
+        if (Users.find({email: email})) {
+            await Users.find({email: email}).then((response) => {
+                res.json(response[0]);
+            });
+        } else {
+            const user = new Users({
+                firstName: fullName,
+                secondName: "Enter your Second Name",
+                img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80",
+                email: email,
+                dob: "Enter your Date of Birth",
+                gender: "Enter your Gender",
+                phone: 1234567890,
+                typeOfRegister: type,
+            });
+            await user.save().then((response) => {
+                res.json(response);
+            });
+        }
     } catch (error) {
         console.log(error);
     }
