@@ -3,7 +3,7 @@ import {Disclosure, Menu, Transition} from "@headlessui/react";
 import {Bars3Icon, BellIcon, XMarkIcon} from "@heroicons/react/24/outline";
 import {useSelector, useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
-import logo from "../../logo/clazzzy-logo-layer.png";
+import logo from "../../logo/clazzzy-logo-layer-removebg.png";
 import {auth, db} from "../../firebase/firebase";
 import {signOut} from "firebase/auth";
 
@@ -19,7 +19,6 @@ export default function Nav({current}) {
         {name: "Products", href: "/products", current: current},
         {name: "Contact Us", href: "/contact", current: current},
     ];
-
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -70,11 +69,11 @@ export default function Nav({current}) {
                                             alt="Your Company"
                                         />
                                     </Link>
-                                    <img
+                                    {/* <img
                                         className="hidden h-8 lg:block rounded"
                                         src={logo}
                                         alt="Your Company"
-                                    />
+                                    /> */}
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block w-full">
                                     <div className="flex space-x-4 justify-center">
