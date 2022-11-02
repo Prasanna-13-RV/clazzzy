@@ -38,29 +38,22 @@ const RegisterFormComponent = () => {
                     password
                 ).then(async (response) => {
                     try {
-                        await dispatch({
-                            type: "SET_USER",
-                            payload: {
-                                fullName,
-                                email,
-                                // password,
-                                uid: response.user.auth.currentUser.uid,
-                                token: response.user.auth.currentUser
-                                    .accessToken,
-                                photoURL:
-                                    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
-                                cart: [],
-                                sell: false,
-                            },
-                        });
-                        await axios.post(
-                            `${process.env.REACT_APP_API_URL}/register`,
-                            {
+                        await axios
+                            .post(`${process.env.REACT_APP_API_URL}/register`, {
                                 email,
                                 fullName,
                                 type: "email_password",
-                            }
-                        );
+                            })
+                            .then(async (response) => {
+                                await dispatch({
+                                    type: "SET_USER",
+                                    payload: {
+                                        ...response.data,
+                                        cart: [],
+                                        sell: false,
+                                    },
+                                });
+                            });
                     } catch (err) {
                         console.log(err);
                     }
@@ -83,27 +76,23 @@ const RegisterFormComponent = () => {
             await signInWithPopup(auth, googleAuthProvider).then(
                 async (response) => {
                     try {
-                        await dispatch({
-                            type: "SET_USER",
-                            payload: {
-                                email: response.user.auth.currentUser.email,
-                                uid: response.user.auth.currentUser.uid,
-                                token: response.user.auth.currentUser
-                                    .accessToken,
-                                photoURL: response.user.photoURL,
-                                cart: [],
-                                sell: false,
-                            },
-                        });
-                        await axios.post(
-                            `${process.env.REACT_APP_API_URL}/register`,
-                            {
+                        await axios
+                            .post(`${process.env.REACT_APP_API_URL}/register`, {
                                 email: response.user.auth.currentUser.email,
                                 fullName:
                                     response.user.auth.currentUser.displayName,
                                 type: "googleoauth",
-                            }
-                        );
+                            })
+                            .then(async (response) => {
+                                await dispatch({
+                                    type: "SET_USER",
+                                    payload: {
+                                        ...response.data,
+                                        cart: [],
+                                        sell: false,
+                                    },
+                                });
+                            });
                     } catch (err) {
                         console.log(err);
                     }
@@ -143,6 +132,7 @@ const RegisterFormComponent = () => {
                                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                                 type="text"
                                 placeholder="Enter your Name"
+                                autoFocus
                                 onChange={(e) => setFullName(e.target.value)}
                             />
                         </div>
@@ -154,7 +144,6 @@ const RegisterFormComponent = () => {
                                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                                 type="email"
                                 placeholder="mike@gmail.com"
-                                autoFocus
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>

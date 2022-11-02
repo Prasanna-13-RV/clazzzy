@@ -16,7 +16,7 @@ const Recommand = ({category}) => {
                     "Clothing",
                     "Fruits",
                     "Vegetables",
-                    "Screws",
+                    "Others",
                     "Shirts",
                 ];
                 const all = response.data.filter((pro) => {

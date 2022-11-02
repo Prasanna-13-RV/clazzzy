@@ -20,7 +20,7 @@ const UpdateComponent = ({productid}) => {
         {value: 1, label: "Shirts"},
         {value: 2, label: "Vegetables"},
         {value: 3, label: "Fruits"},
-        {value: 4, label: "Screws"},
+        {value: 4, label: "Others"},
     ];
 
     const handleChange = (e) => {

@@ -9,8 +9,8 @@ const FourSideComponent = () => {
             >
                 Shopping is an Art!
             </h1>
-            <div className="p-6 text-gray-800 flex flex-row ">
-                <div className="px-10 text-center text-black">
+            <div className="p-6 text-gray-800 flex flex-col ">
+                <div className=" text-justify text-black flex flex-col lg:flex-row">
                     <p className="text-black ">
                         Shopping has always been a favorite pastime of many
                         people. With the rise of ecommerce, it has become even
@@ -30,15 +30,15 @@ const FourSideComponent = () => {
                         decision before purchasing anything
                     </p>
                 </div>
-                <div className="px-10 text-center text-black mb-10">
-                    <p className="text-black ">
+                <div className="pt-10 text-justify text-black mb-10 flex flex-col lg:flex-row">
+                    <p className="text-black lg:w-full">
                         Shopping is a great way to relax for many people. This
                         is because you are able to browse through the items and
                         find what you want without having to worry about
                         anything else.
                     </p>
                     <hr className="my-4 mx-auto w-48 h-1 bg-gray-100 rounded border-0 md:my-10" />
-                    <p className="text-black ">
+                    <p className="text-black lg:w-full">
                         Shopping in ecommerce has become more and more popular
                         than ever before. This is because it has many benefits
                         that traditional shopping doesn't have. These benefits

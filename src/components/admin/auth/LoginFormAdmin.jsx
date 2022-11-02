@@ -71,7 +71,7 @@ export const LoginFormAdmin = () => {
                                 <div className="text-sm font-bold text-gray-700 tracking-wide">
                                     Password
                                 </div>
-                                <div>
+                                {/* <div>
                                     <a
                                         className="text-xs font-display font-semibold text-[#B5838D] hover:text-[#FFC1AA]
                                         cursor-pointer"
@@ -79,7 +79,7 @@ export const LoginFormAdmin = () => {
                                     >
                                         Reset Password
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
                             <input
                                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"

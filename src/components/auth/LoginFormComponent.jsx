@@ -28,18 +28,20 @@ export const LoginFormComponent = () => {
             await signInWithEmailAndPassword(auth, email, password).then(
                 async (response) => {
                     try {
-                        await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
-                            email,
-                        }).then(async (response) => {
-                            await dispatch({
-                                type: "SET_USER",
-                                payload: {
-                                    ...response.data,
-                                    cart: [],
-                                    sell: false,
-                                },
+                        await axios
+                            .post(`${process.env.REACT_APP_API_URL}/login`, {
+                                email,
+                            })
+                            .then(async (response) => {
+                                await dispatch({
+                                    type: "SET_USER",
+                                    payload: {
+                                        ...response.data[0],
+                                        cart: [],
+                                        sell: false,
+                                    },
+                                });
                             });
-                        })
                     } catch (err) {
                         console.log(err);
                     }
@@ -59,30 +61,23 @@ export const LoginFormComponent = () => {
             await signInWithPopup(auth, googleAuthProvider).then(
                 async (response) => {
                     try {
-                        // await dispatch({
-                        //     type: "SET_USER",
-                        //     payload: {
-                        //         email: response.user.auth.currentUser.email,
-                        //         uid: response.user.auth.currentUser.uid,
-                        //         token: response.user.auth.currentUser
-                        //             .accessToken,
-                        //         photoURL: response.user.photoURL,
-                        //         cart: [],
-                        //         sell: false,
-                        //     },
-                        // });
-                        await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
-                            email: response.user.auth.currentUser.email,
-                        }).then(async (response) => {
-                            await dispatch({
-                                type: "SET_USER",
-                                payload: {
-                                    ...response.data[0],
-                                    cart: [],
-                                    sell: false,
-                                },
+                        await axios
+                            .post(`${process.env.REACT_APP_API_URL}/register`, {
+                                email: response.user.auth.currentUser.email,
+                                fullName:
+                                    response.user.auth.currentUser.displayName,
+                                type: "googleoauth",
+                            })
+                            .then(async (response) => {
+                                await dispatch({
+                                    type: "SET_USER",
+                                    payload: {
+                                        ...response.data,
+                                        cart: [],
+                                        sell: false,
+                                    },
+                                });
                             });
-                        })
                     } catch (err) {
                         console.log(err);
                     }
@@ -133,7 +128,7 @@ export const LoginFormComponent = () => {
                             </div>
                             <input
                                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
-                                type=""
+                                type="password"
                                 placeholder="Enter your password"
                                 onChange={(e) => setPassword(e.target.value)}
                             />

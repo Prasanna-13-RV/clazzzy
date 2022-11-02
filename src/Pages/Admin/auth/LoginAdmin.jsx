@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react";
 import {Helmet} from "react-helmet";
-import { LoginFormAdmin } from "../../../components/admin/auth/LoginFormAdmin";
+import {LoginFormAdmin} from "../../../components/admin/auth/LoginFormAdmin";
 
 const LoginAdmin = () => {
     return (
         <>
             <Helmet>
-                <title>Login | Clazzy</title>
+                <title>Seller Login | Clazzy</title>
             </Helmet>
             <section>
                 <div className="lg:flex">
