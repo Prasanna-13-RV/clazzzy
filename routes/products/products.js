@@ -44,7 +44,6 @@ router.get("/product", async (req, res) => {
             name: {$regex: search, $options: "i"},
         });
 
-
         const response = {
             error: false,
             total,
