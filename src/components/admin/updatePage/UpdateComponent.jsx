@@ -17,10 +17,10 @@ const UpdateComponent = ({productid}) => {
     const navigate = useNavigate();
 
     const options = [
-        {value: 1, label: "shirts"},
-        {value: 2, label: "vegetables"},
-        {value: 3, label: "fruits"},
-        {value: 4, label: "screws"},
+        {value: 1, label: "Shirts"},
+        {value: 2, label: "Vegetables"},
+        {value: 3, label: "Fruits"},
+        {value: 4, label: "Screws"},
     ];
 
     const handleChange = (e) => {

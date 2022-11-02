@@ -30,7 +30,7 @@ const ProductsComponent = () => {
             try {
                 const url = `${process.env.REACT_APP_API_URL}/api/product/?page=${page}&sort=${sort.sort},${
                     sort.order
-                }&categories=${filterCategories.toString()}&search=${search}`;
+                }&categories=${filterCategories.toString()}&search=${search}`; 
                 const {data} = await axios.get(url);
                 setObj(data);
                 // console.log(data, "data");

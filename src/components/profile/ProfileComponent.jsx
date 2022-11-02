@@ -27,7 +27,6 @@ const ProfileComponent = ({profileid}) => {
 
     return (
         <>
-            {JSON.stringify(profile)}
             <div className="md:flex no-wrap flex flex-col justify-center items-center shadow-lg bg-black">
                 <div className="w-full md:w-9/12 mx-2 h-64 shadow-lg ">
                     <div className="bg-white p-3 shadow-lg rounded-sm shadow-indigo-500/40 mt-20 px-10">

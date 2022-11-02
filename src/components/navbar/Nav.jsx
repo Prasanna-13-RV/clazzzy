@@ -126,8 +126,8 @@ export default function Nav({current}) {
                                             </span>
 
                                             <img
-                                                className="h-8 w-8 rounded-full"
-                                                // src={user.photoURL}
+                                                className="h-8 w-8 object-cover rounded-full"
+                                                src={user.img}
                                                 alt=""
                                             />
                                             {/* <img

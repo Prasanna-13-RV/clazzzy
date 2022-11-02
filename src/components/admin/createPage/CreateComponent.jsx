@@ -1,7 +1,6 @@
 import React, {useRef, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import {Multiselect} from "multiselect-react-dropdown";
 import {useEffect} from "react";
 import Select from "react-select";
 
@@ -25,37 +24,26 @@ const CreateComponent = () => {
         productDetails.append("category", category);
         productDetails.append("description", description);
         productDetails.append("image", image);
-        axios
-            .post(`${process.env.REACT_APP_API_URL}/admin/createproducts`, productDetails)
-            .then((response) => console.log(response));
-        // console.log({
-        //     name: name,
-        //     price: price,
-        //     image: image,
-        //     category: category,
-        //     description: description,
-        //     rating: rating,
-        // });
 
-        // navigate("/admin/totalproducts");
+        axios
+            .post(
+                `${process.env.REACT_APP_API_URL}/admin/createproducts`,
+                productDetails
+            )
+            .then((response) => console.log(response));
+        navigate("/sellers/totalproducts");
     };
 
     const options = [
-        {value: 1, label: "shirts"},
-        {value: 2, label: "vegetables"},
-        {value: 3, label: "fruits"},
-        {value: 4, label: "screws"},
+        {value: 1, label: "Shirts"},
+        {value: 2, label: "Vegetables"},
+        {value: 3, label: "Fruits"},
+        {value: 4, label: "Screws"},
     ];
 
-    // const [selected] = useState(categoryArray);
+    useEffect(() => {}, [category]);
 
-    useEffect(() => {
-        // console.log(category);
-    }, [category]);
-
-    const handleChange = (e) => {
-        setCategory(e.map((e) => e.label));
-    };
+    const handleChange = (e) => {};
 
     return (
         <>
@@ -108,10 +96,10 @@ const CreateComponent = () => {
                         className="w-full text-sm py-2 border-b border-gray-300 focus:outline-none focus:border-[#B5838D]"
                         placeholder="Enter Product Image URL"
                         required
-                        // onChange={(e) => {
-                        //     setImage(e.target.files[0]);
-                        //     // console.log(e.target.files[0]);
-                        // }}
+                        onChange={(e) => {
+                            setImage(e.target.value);
+                            // console.log(e.target.files[0]);
+                        }}
                     />
                 </div>
                 <div className="relative z-0 mb-6 w-1/2 group">
@@ -130,7 +118,6 @@ const CreateComponent = () => {
                     ></textarea>
                 </div>
 
-
                 <Select
                     className="basic-multi-select w-1/2 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 mb-5"
                     placeholder="Select Option"
@@ -141,7 +128,16 @@ const CreateComponent = () => {
                     isMulti
                     classNamePrefix="select"
                     isClearable
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => {
+                        // setCategory(
+                        //     e.map((cat) => {
+                        //         [...category, cat.label];
+                        //     })
+                        // );
+                        e.map((cat) => {
+                            setCategory([...category, cat.label]);
+                        });
+                    }}
                 />
 
                 <button
