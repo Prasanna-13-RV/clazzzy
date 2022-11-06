@@ -16,6 +16,7 @@ const razorpay = require("./routes/products/razorpay");
 // seller
 const crudRoutes = require("./routes/seller/crud");
 const seller = require("./routes/seller/seller");
+const sellercrud = require("./routes/seller/sellercrud");
 // home
 const recommend = require("./routes/home/recommend");
 const contactus = require("./routes/home/contactus");
@@ -41,6 +42,7 @@ app.use("/", addtocart);
 app.use("/", recommend);
 app.use("/", contactus);
 app.use("/", userRoute);
+app.use("/", sellercrud);
 app.use("/api/payment", razorpay);
 
 app.use("/seller", seller);

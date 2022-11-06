@@ -5,10 +5,9 @@ router.post("/register", async (req, res) => {
     const {fullName, email, type} = req.body;
 
     try {
-        if (Users.find({email: email})) {
-            await Users.find({email: email}).then((response) => {
-                res.json(response[0]);
-            });
+        const userResponse = await Users.find({email: email});
+        if (userResponse.length) {
+            return res.json(userResponse);
         } else {
             const user = new Users({
                 firstName: fullName,

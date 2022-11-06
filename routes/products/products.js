@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Products = require("../../models/Products");
+const Users = require("../../models/Users");
 const allProducts = require("../../config/products.json");
 
 router.get("/product", async (req, res) => {
@@ -74,7 +75,7 @@ router.get("/product", async (req, res) => {
 
 // const deleteManyProducts = async () => {
 //     try {
-//         const docs = await Products.deleteMany({});
+//         const docs = await Users.deleteMany({});
 //         console.log(docs);
 //     } catch (err) {
 //         console.log(err);
