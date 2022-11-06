@@ -56,13 +56,13 @@ const ProfileComponent = ({profileid}) => {
                                         First Name
                                     </div>
                                     <div className="px-4 py-2">
-                                        {!profile.firstName ? (
+                                        {/* {profile && !profile.firstName ? (
                                             <h1 className="text-slate-400">
                                                 Update your first name
                                             </h1>
-                                        ) : (
-                                            <h1>{profile.firstName}</h1>
-                                        )}
+                                        ) : ( */}
+                                            <h1>{profile && profile.firstName}</h1>
+                                        {/* )} */}
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2">
@@ -70,13 +70,13 @@ const ProfileComponent = ({profileid}) => {
                                         Last Name
                                     </div>
                                     <div className="px-4 py-2">
-                                        {!profile.secondName ? (
+                                        {/* {!profile.secondName ? (
                                             <h1 className="text-slate-400">
                                                 Update your second name
                                             </h1>
-                                        ) : (
-                                            <h1>{profile.secondName}</h1>
-                                        )}
+                                        ) : ( */}
+                                            <h1>{profile && profile.secondName}</h1>
+                                        {/* )} */}
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2">
@@ -84,13 +84,13 @@ const ProfileComponent = ({profileid}) => {
                                         Gender
                                     </div>
                                     <div className="px-4 py-2">
-                                        {!profile.gender ? (
+                                        {/* {!profile.gender ? (
                                             <h1 className="text-slate-400">
                                                 Update your gender
                                             </h1>
-                                        ) : (
-                                            <h1>{profile.gender}</h1>
-                                        )}
+                                        ) : ( */}
+                                            <h1>{profile && profile.gender}</h1>
+                                        {/* )} */}
                                     </div>
                                     {/* <div className="px-4 py-2"></div> */}
                                 </div>
@@ -99,13 +99,13 @@ const ProfileComponent = ({profileid}) => {
                                         Contact No.
                                     </div>
                                     <div className="px-4 py-2">
-                                        {!profile.phone ? (
+                                        {/* {!profile.phone ? (
                                             <h1 className="text-slate-400">
                                                 Update your number
                                             </h1>
-                                        ) : (
-                                            <h1>{profile.phone}</h1>
-                                        )}
+                                        ) : ( */}
+                                            <h1>{profile && profile.phone}</h1>
+                                        {/* )} */}
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2">
@@ -113,13 +113,13 @@ const ProfileComponent = ({profileid}) => {
                                         Email
                                     </div>
                                     <div className="px-4 py-2">
-                                        {!profile.email ? (
+                                        {/* {!profile.email ? (
                                             <h1 className="text-slate-400">
                                                 Update your email
                                             </h1>
-                                        ) : (
-                                            <h1>{profile.email}</h1>
-                                        )}
+                                        ) : ( */}
+                                            <h1>{profile && profile.email}</h1>
+                                        {/* )} */}
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2">
@@ -127,20 +127,20 @@ const ProfileComponent = ({profileid}) => {
                                         Birthday
                                     </div>
                                     <div className="px-4 py-2">
-                                        {!profile.dob ? (
+                                        {/* {!profile.dob ? (
                                             <h1 className="text-slate-400">
                                                 Update your date of birth
                                             </h1>
-                                        ) : (
-                                            <h1>{profile.dob}</h1>
-                                        )}
+                                        ) : ( */}
+                                            <h1>{profile && profile.dob}</h1>
+                                        {/* )} */}
                                     </div>
                                 </div>
                             </div>
                             <div className="w-full flex flex-col justify-center items-center">
                                 <Link
-                                    to={`/updateprofile/${profile._id}`}
-                                    profileid={profile._id}
+                                    to={`/updateprofile/${profile && profile._id}`}
+                                    profileid={profile && profile._id}
                                     className="bg-[#FFB4A2] text-[#3E3B42] px-10 py-2 self-center rounded tracking-wide my-5
                                 font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-[#FFC1AA]
                                 shadow-lg"
