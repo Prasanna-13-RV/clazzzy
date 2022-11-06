@@ -53,7 +53,7 @@ router.post("/:id", async (req, res) => {
 
     try {
         const iduser = await SellerUser.find({userid: id});
-        console.log(iduser);
+        // console.log(iduser);
         if (iduser.length > 0) {
             console.log("Email already sent to your registered mail ID");
             res.json("Email already sent to your registered mail ID");

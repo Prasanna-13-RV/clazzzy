@@ -14,4 +14,22 @@ router.get("/singleproduct/:id", async (req, res) => {
     }
 });
 
+router.post("/countvalue", async (req, res) => {
+    const ids = Object.values(req.body.id);
+
+    try {
+        ids.forEach(async (e) => {
+            // const idProducts = Products.find({_id: e});
+            // if (idProducts) {
+                await Products.findById(e, (err, update) => {
+                    update.count = count + 1;
+                    update.save();
+                });
+            // }
+        });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
 module.exports = router;

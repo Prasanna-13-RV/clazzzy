@@ -9,7 +9,7 @@ router.get("/seller/:id", (req, res) => {
         const products = Products.find({sellerId: id}).then((response) => {
             res.json(response);
         });
-        console.log(products);
+        // console.log(products);
     } catch (error) {
         console.log(error);
     }
