@@ -34,7 +34,7 @@ router.post("/login", async (req, res) => {
         await Users.find({email: email}).then(async (response) => {
             try {
                 res.json(response);
-                console.log(response);
+                // console.log(response);
             } catch (error) {
                 console.log(error);
             }
@@ -49,6 +49,7 @@ router.get("/profile/:id", async (req, res) => {
     try {
         const singleUser = Users.findById(id, (err, response) => {
             res.json(response);
+            // console.log(response);
         });
     } catch (error) {
         console.log(error);
