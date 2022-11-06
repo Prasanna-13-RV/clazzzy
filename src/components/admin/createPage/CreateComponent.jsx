@@ -30,7 +30,7 @@ const CreateComponent = () => {
                 `${process.env.REACT_APP_API_URL}/admin/createproducts`,
                 productDetails
             )
-            .then((response) => console.log(response));
+            // .then((response) => console.log(response));
         navigate("/sellers/totalproducts");
     };
 

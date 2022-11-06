@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, {useState, useEffect} from "react";
+import { useSelector } from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import Pagination from "./Pagination";
 
@@ -9,6 +10,7 @@ const TableComponent = () => {
     const [postsPerPage, setPostsPerPage] = useState(5);
 
     const {user} = useSelector((state) => ({...state}));
+    
     useEffect(() => {
         const getProducts = async () => {
             try {
@@ -27,7 +29,7 @@ const TableComponent = () => {
     const navigate = useNavigate();
     const handleRemove = (id) => {
         axios.delete(`${process.env.REACT_APP_API_URL}/admin/deleteproducts/${id}`);
-        console.log(id);
+        // console.log(id);
         // navigate("/admin/totalproducts");
     };
 

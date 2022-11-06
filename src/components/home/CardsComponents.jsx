@@ -26,7 +26,7 @@ const CardsComponents = () => {
                     {products.map((product) => (
                         <div className="max-w-sm rounded overflow-hidden shadow-lg m-3 py-5">
                             <Link to={`/singleproduct/${product._id}`}>
-                                <img className="w-full" src={product.img} />
+                                <img className="w-full h-[15rem] object-contain" src={product.img} />
                             </Link>
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">

@@ -71,8 +71,15 @@ const Template = ({productid}) => {
         }
     };
 
+    // const countValue = async () => {
+    //     await axios.post(`${process.env.REACT_APP_API_URL}/countvalue`, {
+    //         id: user.cart.map((e) => e._id),
+    //     });
+    // };
+
     return (
         <>
+            {/* {JSON.stringify(user.cart.map((e) => e.count))} */}
             <div className="relative z-10" role="dialog" aria-modal="true">
                 {/* <div className="fixed inset-0 z-10 overflow-y-auto"> */}
                 <div className="flex w-full items-stretch justify-center text-center md:items-center md:px-2 lg:px-4">
@@ -221,6 +228,7 @@ const Template = ({productid}) => {
                                         <button
                                             type="submit"
                                             className="mt-6 flex w-1/3 ml-5 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                            // onClick={countValue}
                                         >
                                             <Link to="/addtocart">
                                                 Continue to cart

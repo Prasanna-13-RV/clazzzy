@@ -39,7 +39,7 @@ export const LoginFormAdmin = () => {
     // };
 
     useEffect(() => {
-        console.log(currentUser);
+        // console.log(currentUser);
         // reduxUser();
     }, [currentUser]);
 

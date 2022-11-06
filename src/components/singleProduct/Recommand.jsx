@@ -72,7 +72,7 @@ const Recommand = ({category}) => {
                                 <div className="max-w-sm rounded overflow-hidden shadow-lg m-3">
                                     <a href={`/singleproduct/${product._id}`}>
                                         <img
-                                            className="w-full"
+                                            className="w-full h-[15rem] object-contain"
                                             src={product.img}
                                         />
                                     </a>

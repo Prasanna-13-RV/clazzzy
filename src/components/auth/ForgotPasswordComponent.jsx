@@ -20,9 +20,10 @@ export const ForgotPasswordComponent = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await sendPasswordResetEmail(auth, email).then((response) =>
-                console.log(response)
-            );
+            await sendPasswordResetEmail(auth, email)
+            // .then((response) =>
+            //     console.log(response)
+            // );
             navigate("/login");
         } catch (error) {
             console.log(error);

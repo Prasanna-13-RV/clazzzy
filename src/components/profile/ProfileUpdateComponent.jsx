@@ -64,7 +64,7 @@ const ProfileUpdateComponent = ({}) => {
                     }
                 )
                 .then((response) => {
-                    console.log(response);
+                    // console.log(response);
                     navigate(`/profile/${user._id}`);
                 });
         } catch (error) {
