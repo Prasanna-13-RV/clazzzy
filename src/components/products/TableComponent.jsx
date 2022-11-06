@@ -12,7 +12,7 @@ const TableComponent = ({products}) => {
                     >
                         <Link to={`/singleproduct/${product._id}`}>
                             <img
-                                className="w-full"
+                                className="w-full h-[15rem] object-contain"
                                 src={product.img}
                                 alt={product.img}
                             />

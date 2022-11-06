@@ -8,11 +8,12 @@ const TableComponent = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(5);
 
+    const {user} = useSelector((state) => ({...state}));
     useEffect(() => {
         const getProducts = async () => {
             try {
                 const {data} = await axios.get(
-                    `${process.env.REACT_APP_API_URL}/admin/readproducts`
+                    `${process.env.REACT_APP_API_URL}/seller/${user._id}`
                 );
                 // console.log(data);
                 setAllProducts(data);

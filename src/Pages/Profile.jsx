@@ -13,7 +13,7 @@ const Profile = () => {
                 <title>Profile | Clazzzy</title>
             </Helmet>
             <Nav />
-            <ProfileComponent profileid={user._id} />
+            <ProfileComponent profileid={user && user._id} />
         </>
     );
 };
