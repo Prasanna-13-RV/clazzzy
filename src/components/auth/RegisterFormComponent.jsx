@@ -87,7 +87,7 @@ const RegisterFormComponent = () => {
                                 await dispatch({
                                     type: "SET_USER",
                                     payload: {
-                                        ...response.data[0],
+                                        ...response.data,
                                         cart: [],
                                         sell: false,
                                     },

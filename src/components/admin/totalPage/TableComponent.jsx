@@ -15,7 +15,8 @@ const TableComponent = () => {
         const getProducts = async () => {
             try {
                 const {data} = await axios.get(
-                    `${process.env.REACT_APP_API_URL}/seller/${user._id}`
+                    // `${process.env.REACT_APP_API_URL}/seller/${user._id}`
+                    `${process.env.REACT_APP_API_URL}/admin/readproducts`
                 );
                 // console.log(data);
                 setAllProducts(data);
