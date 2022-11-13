@@ -28,7 +28,6 @@ router.post(
         const description = req.body.description;
         const rating = req.body.rating;
 
-
         const product = new Products({
             name: name,
             pricing: price,
