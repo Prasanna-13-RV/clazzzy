@@ -15,7 +15,6 @@ const CreateComponent = () => {
     const inputRef = useRef();
 
     const navigate = useNavigate();
-
     const createProduct = () => {
         const productDetails = new FormData();
         productDetails.append("name", name);
@@ -33,6 +32,19 @@ const CreateComponent = () => {
             // .then((response) => console.log(response));
         navigate("/sellers/totalproducts");
     };
+
+    // const createProduct = () => {
+    //     const productDetails = new FormData();
+    //     productDetails.append("name", name);
+    //     productDetails.append("price", price);
+    //     productDetails.append("rating", rating);
+    //     productDetails.append("category", category);
+    //     productDetails.append("description", description);
+    //     productDetails.append("image", image);
+    //     axios
+    //         .post("https://clazzzy-server.herokuapp.com/admin/createproducts", productDetails)
+    //         .then((response) => console.log(response));
+    // };
 
     const options = [
         {value: 1, label: "Shirts"},
